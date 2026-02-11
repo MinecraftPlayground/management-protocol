@@ -1,5 +1,5 @@
 export interface MethodObject<
-  Name extends string,
+  Name extends string = string,
   Params extends unknown[] = unknown[],
   Result = unknown
 > {
