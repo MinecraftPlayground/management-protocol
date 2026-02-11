@@ -4,16 +4,16 @@ import type { MethodObjectDefinition } from './json_rpc/schema/method_object_def
 import type { NotificationObjectDefinition } from './json_rpc/schema/notification_object_definition.ts';
 
 
-export class Client<Methods extends MethodObjectDefinition | NotificationObjectDefinition = minecraft.methods.All> {
+export class Client<Definitions extends MethodObjectDefinition | NotificationObjectDefinition = minecraft.methods.All> {
   private requestId : number = 0;
   constructor() {
 
   }
 
-  public call<MethodName extends Methods['name']>(
+  public call<MethodName extends Definitions['name']>(
     method : MethodName,
-    ...params : ParamsNever<ExtractParams<Methods, MethodName>>
-  ) : Promise<ExtractResult<Methods, MethodName>> {
+    ...params : ParamsNever<ExtractParams<Definitions, MethodName>>
+  ) : Promise<ExtractResult<Definitions, MethodName>> {
     const id = ++this.requestId;
 
     return new Promise((resolve, reject) => {
@@ -21,11 +21,10 @@ export class Client<Methods extends MethodObjectDefinition | NotificationObjectD
     });
   }
 
-  public notify<MethodName extends Methods['name']>(
+  public notification<MethodName extends Extract<Definitions, NotificationObjectDefinition>['name']>(
     method : MethodName,
-    listener : (...params : ExtractParams<Methods, MethodName>) => void
+    listener : (...params : ExtractParams<Definitions, MethodName>) => void
   ) : void {
     
   }
 }
-

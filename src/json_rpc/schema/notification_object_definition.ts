@@ -3,6 +3,7 @@ export interface NotificationObjectDefinition<
   Params extends unknown[] = unknown[],
   Result = unknown
 > {
+  type : 'notification',
   name : Name,
   params : Params,
   result : Result
