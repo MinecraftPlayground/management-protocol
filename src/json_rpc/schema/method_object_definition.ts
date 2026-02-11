@@ -1,4 +1,4 @@
-export interface MethodObject<
+export interface MethodObjectDefinition<
   Name extends string = string,
   Params extends unknown[] = unknown[],
   Result = unknown

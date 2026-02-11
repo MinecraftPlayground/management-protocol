@@ -1,10 +1,10 @@
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Get the number of seconds before the game is automatically paused when no players are online
  */
-export type MinecraftServersettingsPauseWhenEmptySeconds = MethodObject<
+export type MinecraftServersettingsPauseWhenEmptySeconds = MethodObjectDefinition<
   'minecraft:serversettings/pause_when_empty_seconds',
   never[],
   { seconds? : number }

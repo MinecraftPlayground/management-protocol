@@ -1,11 +1,11 @@
 import type { PlayerObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Player was removed from allowlist
  */
-export type MinecraftNotificationAllowlistRemoved = MethodObject<
+export type MinecraftNotificationAllowlistRemoved = NotificationObjectDefinition<
   'minecraft:notification/allowlist/removed',
   [{ player : PlayerObject }]
 >

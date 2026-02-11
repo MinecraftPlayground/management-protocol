@@ -1,11 +1,11 @@
 import type { PlayerObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Remove players from allowlist
  */
-export type MinecraftAllowlistRemove = MethodObject<
+export type MinecraftAllowlistRemove = MethodObjectDefinition<
   'minecraft:allowlist/remove',
   [{ remove : PlayerObject[] }],
   { allowlist? : PlayerObject[] }

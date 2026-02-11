@@ -1,10 +1,10 @@
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Ip was removed from ip ban list
  */
-export type MinecraftNotificationIpBansRemoved = MethodObject<
+export type MinecraftNotificationIpBansRemoved = NotificationObjectDefinition<
   'minecraft:notification/ip_bans/removed',
   [{ player : string }]
 >

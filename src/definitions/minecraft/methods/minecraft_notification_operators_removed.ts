@@ -1,11 +1,11 @@
 import type { OperatorObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Player was deoped
  */
-export type MinecraftNotificationOperatorsRemoved = MethodObject<
+export type MinecraftNotificationOperatorsRemoved = NotificationObjectDefinition<
   'minecraft:notification/operators/removed',
   [{ player : OperatorObject }]
 >

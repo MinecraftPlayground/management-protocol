@@ -1,11 +1,11 @@
 import type { SystemMessageObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Send a system message
  */
-export type MinecraftServerSystemMessage = MethodObject<
+export type MinecraftServerSystemMessage = MethodObjectDefinition<
   'minecraft:server/system_message',
   [{ message : SystemMessageObject }],
   { sent? : boolean }

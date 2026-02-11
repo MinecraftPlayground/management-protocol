@@ -1,9 +1,9 @@
-import type { ExtractParams, ExtractResult, ParamsNever } from './json_rpc/schema/methods/index.ts';
+import type { ExtractParams, ExtractResult, ParamsNever } from './json_rpc/schema/index.ts';
 import type { minecraft } from './definitions/index.ts';
-import type { MethodObject } from './json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from './json_rpc/schema/method_object_definition.ts';
 
 
-export class Client<Methods extends MethodObject = minecraft.methodes.All> {
+export class Client<Methods extends MethodObjectDefinition = minecraft.methods.All> {
   private requestId : number = 0;
   constructor() {
 

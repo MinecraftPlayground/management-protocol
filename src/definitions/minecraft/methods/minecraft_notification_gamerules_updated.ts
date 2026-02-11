@@ -1,11 +1,11 @@
 import type { TypedGameRuleObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Gamerule was changed
  */
-export type MinecraftNotificationGamerulesUpdated = MethodObject<
+export type MinecraftNotificationGamerulesUpdated = NotificationObjectDefinition<
   'minecraft:notification/gamerules/updated',
   [{ gamerule : TypedGameRuleObject }]
 >

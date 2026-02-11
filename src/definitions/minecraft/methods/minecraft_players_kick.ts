@@ -1,11 +1,11 @@
 import type { KickPlayerObject, PlayerObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Kick players
  */
-export type MinecraftPlayersKick = MethodObject<
+export type MinecraftPlayersKick = MethodObjectDefinition<
   'minecraft:players/kick',
   [{ kick : KickPlayerObject[] }],
   { kicked? : PlayerObject[] }

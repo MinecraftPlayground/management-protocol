@@ -1,4 +1,4 @@
-import type { MethodObject } from '../method_object.ts';
+import type { MethodObjectDefinition } from './method_object_definition.ts';
 
 /**
  * Extract the result type from a method by its name
@@ -12,6 +12,6 @@ import type { MethodObject } from '../method_object.ts';
  * ```
  */
 export type ExtractResult<
-  Methods extends MethodObject,
+  Methods extends MethodObjectDefinition,
   MethodName extends string
 > = Extract<Methods, { name: MethodName }>['result'];

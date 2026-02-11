@@ -1,11 +1,11 @@
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 import type { ServerStateObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
 
 
 /**
  * Server status heartbeat
  */
-export type MinecraftNotificationServerStatus = MethodObject<
+export type MinecraftNotificationServerStatus = NotificationObjectDefinition<
   'minecraft:notification/server/status',
   [{ status : ServerStateObject }]
 >

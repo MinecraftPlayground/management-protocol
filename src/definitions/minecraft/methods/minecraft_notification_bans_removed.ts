@@ -1,11 +1,11 @@
 import type { PlayerObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Player was removed from ban list
  */
-export type MinecraftNotificationBansRemoved = MethodObject<
+export type MinecraftNotificationBansRemoved = NotificationObjectDefinition<
   'minecraft:notification/bans/removed',
   [{ player : PlayerObject }]
 >

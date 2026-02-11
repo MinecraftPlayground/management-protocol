@@ -1,11 +1,11 @@
 import type { IpBanObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Ip was added to ip ban list
  */
-export type MinecraftNotificationIpBansAdded = MethodObject<
+export type MinecraftNotificationIpBansAdded = NotificationObjectDefinition<
   'minecraft:notification/ip_bans/added',
   [{ player : IpBanObject }]
 >

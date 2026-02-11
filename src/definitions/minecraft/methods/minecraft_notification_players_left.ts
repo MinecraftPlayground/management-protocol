@@ -1,11 +1,11 @@
 import type { PlayerObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Player left
  */
-export type MinecraftNotificationPlayersLeft = MethodObject<
+export type MinecraftNotificationPlayersLeft = NotificationObjectDefinition<
   'minecraft:notification/players/left',
   [{ player : PlayerObject }]
 >

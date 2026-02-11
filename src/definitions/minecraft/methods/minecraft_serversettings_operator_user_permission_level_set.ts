@@ -1,10 +1,10 @@
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Set default operator permission level
  */
-export type MinecraftServersettingsOperatorUserPermissionLevelSet = MethodObject<
+export type MinecraftServersettingsOperatorUserPermissionLevelSet = MethodObjectDefinition<
   'minecraft:serversettings/operator_user_permission_level/set',
   [{ level : number }],
   { level? : number }

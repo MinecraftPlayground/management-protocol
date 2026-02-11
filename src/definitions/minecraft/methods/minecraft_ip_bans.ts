@@ -1,11 +1,11 @@
 import type { IpBanObject } from '../schemas.ts';
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Get the ip ban list
  */
-export type MinecraftIpBans = MethodObject<
+export type MinecraftIpBans = MethodObjectDefinition<
   'minecraft:ip_bans',
   never[],
   { banlist? : IpBanObject[] }

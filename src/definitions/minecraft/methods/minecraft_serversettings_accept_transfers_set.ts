@@ -1,10 +1,10 @@
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { MethodObjectDefinition } from '../../../json_rpc/schema/method_object_definition.ts';
 
 
 /**
  * Enable or disable accepting player transfers from other servers
  */
-export type MinecraftServersettingsAcceptTransfersSet = MethodObject<
+export type MinecraftServersettingsAcceptTransfersSet = MethodObjectDefinition<
   'minecraft:serversettings/accept_transfers/set',
   [{ accept : boolean }],
   { accepted? : boolean }

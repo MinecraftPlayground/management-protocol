@@ -4,5 +4,5 @@
  * @module
  */
 
-export * as methodes from './methodes.ts';
+export * as methods from './methods.ts';
 export * as schemas from './schemas.ts';

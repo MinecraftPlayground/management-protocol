@@ -1,10 +1,10 @@
-import type { MethodObject } from '../../../json_rpc/schema/method_object.ts';
+import type { NotificationObjectDefinition } from '../../../json_rpc/schema/notification_object_definition.ts';
 
 
 /**
  * Server started
  */
-export type MinecraftNotificationServerStarted = MethodObject<
+export type MinecraftNotificationServerStarted = NotificationObjectDefinition<
   'minecraft:notification/server/started',
   never[]
 >
