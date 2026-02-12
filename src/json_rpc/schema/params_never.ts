@@ -1,5 +1,5 @@
 /**
- * Converts never[] to an empty array type [] for better ergonomics.
+ * Converts `never[]` to an empty array type `[]` for better ergonomics.
  * 
  * This utility type is used to handle methods/notifications that don't require parameters.
  * When a method has no parameters, its params type is never[], but for function signatures
