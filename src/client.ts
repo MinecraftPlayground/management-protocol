@@ -8,13 +8,19 @@ import { parseMessageEventData } from './json_rpc/communication/parse_message_ev
 import type { RequestObject } from './json_rpc/communication/request_object.ts';
 import type { ClientOptions } from './client_options.ts';
 
+/**
+ * Valid connection address type.
+ */
+type ConnectionAddress =
+  | `ws://${string}${string}`
+  | `wss://${string}${string}`
 
 /**
  * JSON-RPC 2.0 WebSocket client for communicating with a Minecraft server.
  * 
  * Supports method calls and notifications (server-initiated events).
  * 
- * @template Definitions - Union type of all available method and notification definitions
+ * @template Definitions Union type of all available method and notification definitions
  * 
  * @example
  * ```ts
@@ -33,15 +39,16 @@ import type { ClientOptions } from './client_options.ts';
  * ```
  */
 export class Client<Definitions extends Definition = minecraft.All> {
-  private readonly ws : WebSocket;
   private readonly notificationListeners : Map<string, Set<(...params: unknown[]) => void>> = new Map();
   private readonly pendingRequests : Map<string | number | null, PendingRequest<unknown>> = new Map();
+  private readonly ready : Promise<void>;
   private requestId : number = 0;
+  private readonly connection : WebSocket;
 
   /**
    * Create a new JSON-RPC client.
    * 
-   * @param url WebSocket URL to connect to (e.g., 'ws://localhost:25576')
+   * @param url WebSocket URL to connect to (ex. 'ws://localhost:25576')
    * @param options Optional configuration
    * 
    * @example
@@ -56,14 +63,19 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * ```
    */
   constructor(
-    url : string,
+    url : ConnectionAddress,
     options? : ClientOptions
   ) {
-    this.ws = new WebSocket(url, {
+    this.connection = new WebSocket(url, {
       headers: options?.token ? { Authorization: `Bearer ${options.token}` } : undefined
     });
 
-    this.ws.addEventListener('message', this.handleMessageEvent);
+    this.ready = new Promise<void>((resolve, reject) => {
+      this.connection.addEventListener('open', () => resolve());
+      this.connection.addEventListener('error', (error) => reject(error));
+    });
+
+    this.connection.addEventListener('message', this.handleMessageEvent);
   }
 
   /**
@@ -116,7 +128,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * or rejects with an error if the server returns an error response.
    * 
    * @template MethodName Name of the method to call
-   * @param method Method name (e.g., 'minecraft:players')
+   * @param method Method name (ex. 'minecraft:players')
    * @param params Method parameters (type-safe based on the method)
    * @returns Promise that resolves with the method result.
    * 
@@ -136,10 +148,12 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * });
    * ```
    */
-  public call<MethodName extends Definitions['name']>(
+  public async call<MethodName extends Definitions['name']>(
     method : MethodName,
     ...params : ParamsNever<ExtractParams<Definitions, MethodName>>
   ) : Promise<ExtractResult<Definitions, MethodName>> {
+    await this.ready;
+
     const id = ++this.requestId;
 
     const request : RequestObject = {
@@ -158,7 +172,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
         reject
       });
 
-      this.ws.send(JSON.stringify(request));
+      this.connection.send(JSON.stringify(request));
     });
   }
 
@@ -171,8 +185,6 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
-   * const client = new Client();
-   * 
    * // Listen for player joined notifications
    * client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
    *   console.log(`${player.name} joined the server`);
@@ -199,14 +211,14 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
-   * const client = new Client();
-   * 
    * const onPlayerJoined = ({ player }) => {
    *   console.log(`${player.name} joined`);
    * };
    * 
+   * // Add the listener
    * client.addNotificationListener('minecraft:notification/players/joined', onPlayerJoined);
    * 
+   * // And remove the listener
    * client.removeNotificationListener('minecraft:notification/players/joined', onPlayerJoined);
    * ```
    */
