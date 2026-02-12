@@ -98,7 +98,7 @@ client.call('custom:player/greet', {
 }).then(({player}) => { console.log(`Greeted player ${player.name}`) })
 ```
 
-### notifications
+### Notifications
 ```ts
 import { Client } from './client.ts'
 import type { NotificationObjectDefinition } from './schema/index.ts'
