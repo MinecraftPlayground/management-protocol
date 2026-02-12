@@ -1,6 +1,10 @@
 {
   "version": "0.1.0",
-  "exports": { },
+  "exports": {
+    ".": "./src/index.ts",
+    "./definitions": "./src/definitions/index.ts",
+    "./schema": "./src/json_rpc/schema/index.ts"
+  },
   "tasks": {
     "run": {
       "description": "Run the main application.",

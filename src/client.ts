@@ -6,17 +6,8 @@ import type { NotificationObject } from './json_rpc/communication/notification_o
 import { isNotificationObject } from './json_rpc/communication/is_notification_object.ts';
 import { parseMessageEventData } from './json_rpc/communication/parse_message_event_data.ts';
 import type { RequestObject } from './json_rpc/communication/request_object.ts';
+import type { ClientOptions } from './client_options.ts';
 
-
-/**
- * Options for the JsonRpcClient.
- */
-interface ClientOptions {
-  /**
-   * Optional authentication token for WebSocket connection.
-   */
-  token? : string
-}
 
 /**
  * JSON-RPC 2.0 WebSocket client for communicating with a Minecraft server.
