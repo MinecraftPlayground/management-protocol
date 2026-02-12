@@ -6,16 +6,13 @@
  * 
  * @example
  * ```ts
- * import { Client } from './index.ts';
- * 
- * // Create a client instance
  * const client = new Client('ws://localhost:25576', {
  *   token: 'my-secret-token'
  * });
  * 
  * // Call methods
  * const allowlist = await client.call('minecraft:allowlist');
- * console.log('Allowlisted players:', allowlist.allowlist);
+ * console.log('Whitelisted players:', allowlist.allowlist);
  * 
  * // Listen for notifications
  * client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
@@ -25,8 +22,9 @@
  * 
  * @example
  * ```ts
- * // Managing server settings
- * const client = new Client('ws://localhost:25576');
+ * const client = new Client('ws://localhost:25576', {
+ *   token: 'my-secret-token'
+ * });
  * 
  * // Get current difficulty
  * const { difficulty } = await client.call('minecraft:serversettings/difficulty');
@@ -38,8 +36,9 @@
  * 
  * @example
  * ```ts
- * // Managing players
- * const client = new Client('ws://localhost:25576');
+ * const client = new Client('ws://localhost:25576', {
+ *   token: 'my-secret-token'
+ * });
  * 
  * // Get all connected players
  * const { players } = await client.call('minecraft:players');

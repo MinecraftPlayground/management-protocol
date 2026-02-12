@@ -12,6 +12,7 @@ export type All =
 | AllMethods
 | AllNotifications
 
+export type { Extend } from './extend.ts'
 export type * as methods from './methods.ts';
 export type * as notifications from './notifications.ts';
 export type * as schemas from './schemas.ts';
