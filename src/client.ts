@@ -1,5 +1,6 @@
 import type { Definition, ExtractParams, ExtractResult, NotificationObjectDefinition, ParamsNever } from './json_rpc/schema/index.ts';
 import type { minecraft } from './definitions/index.ts';
+import { ResponseObject } from './json_rpc/communication/response_object.ts';
 
 
 /**
@@ -24,6 +25,12 @@ export class Client<Definitions extends Definition = minecraft.All> {
     this.ws = new WebSocket(url, {
       headers: options?.token ? { Authorization: `Bearer ${options.token}` } : undefined
     });
+
+    this.ws.addEventListener('message', this.handleMessageEvent);
+  }
+
+  private handleMessageEvent(event : MessageEvent<string>) : void {
+    
   }
 
   public call<MethodName extends Definitions['name']>(
