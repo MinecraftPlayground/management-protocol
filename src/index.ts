@@ -13,7 +13,7 @@
  *   token: 'my-secret-token'
  * });
  * 
- * // Wait for connection and call methods
+ * // Call methods
  * const allowlist = await client.call('minecraft:allowlist');
  * console.log('Allowlisted players:', allowlist.allowlist);
  * 
@@ -27,8 +27,6 @@
  * ```ts
  * // Managing server settings
  * const client = new Client('ws://localhost:25576');
- * 
- * await client.ready();
  * 
  * // Get current difficulty
  * const { difficulty } = await client.call('minecraft:serversettings/difficulty');

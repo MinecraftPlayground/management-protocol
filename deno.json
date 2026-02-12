@@ -6,20 +6,12 @@
     "./schema": "./src/json_rpc/schema/index.ts"
   },
   "tasks": {
-    "run": {
-      "description": "Run the main application.",
-      "command": "deno run -A --check ./src/index.ts"
-    },
-    "run:watch": {
-      "description": "Run the main application in watch mode.",
-      "command": "deno run -A --check --watch ./src/index.ts"
-    },
     "lint": {
       "description": "Run the linting tool.",
       "command": "deno lint"
     },
-    "test": {
-      "description": "Run the test suite.",
+    "test:unit": {
+      "description": "Run the unit test suite.",
       "command": "deno test -A --check --permit-no-files --reload --doc --junit-path=\"./reports/report.xml\""
     }
   },
