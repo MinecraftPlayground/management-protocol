@@ -18,7 +18,7 @@ const client = new Client('ws://localhost:25576', {
 
 // Call methods
 const allowlist = await client.call('minecraft:allowlist');
-console.log('Whitelisted players:', allowlist.allowlist);
+console.log('Whitelisted players:', allowlist);
 
 // Listen for notifications
 client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
@@ -36,7 +36,7 @@ const client = new Client('ws://localhost:25576', {
 });
 
 // Get current difficulty
-const { difficulty } = await client.call('minecraft:serversettings/difficulty');
+const difficulty = await client.call('minecraft:serversettings/difficulty');
 console.log('Current difficulty:', difficulty);
 
 // Set difficulty to hard
@@ -52,7 +52,7 @@ const client = new Client('ws://localhost:25576', {
 });
 
 // Get all connected players
-const { players } = await client.call('minecraft:players');
+const players = await client.call('minecraft:players');
 
 // Add player to allowlist
 await client.call('minecraft:allowlist/add', {
@@ -85,7 +85,8 @@ type CustomPlayerGreetMethod = MethodObjectDefinition<
     player : minecraft.schema.PlayerObject,
     message : string
   }],
-  { player? : minecraft.schema.PlayerObject }
+  /** player */
+  minecraft.schema.PlayerObject
 >
 
 const client = new Client<minecraft.Extend<CustomPlayerGreetMethod>>('ws://localhost:25576', {
@@ -95,7 +96,7 @@ const client = new Client<minecraft.Extend<CustomPlayerGreetMethod>>('ws://local
 client.call('custom:player/greet', {
   player: { id: 'uuid', name: 'PlayerName' },
   message: 'Hello Player!'
-}).then(({player}) => { console.log(`Greeted player ${player.name}`) })
+}).then(({ player }) => { console.log(`Greeted player ${player.name}`) })
 ```
 
 ### Notifications
@@ -116,7 +117,7 @@ const client = new Client<minecraft.Extend<CustomPlayerGreetNotification>>('ws:/
   token: 'token-from-server.properties'
 });
 
-client.addNotificationListener('custom:notification/player/greeted', ({player}) => {
+client.addNotificationListener('custom:notification/player/greeted', ({ player }) => {
   console.log(`Greeted player ${player.name}`)
 })
 ```

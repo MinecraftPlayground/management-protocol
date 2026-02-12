@@ -121,8 +121,36 @@ export class Client<Definitions extends Definition = minecraft.All> {
     }
   }
 
-  public close() : void {
-    this.connection.close();
+  /**
+   * Close the WebSocket connection to the server.
+   * 
+   * This method cleanly closes the underlying WebSocket connection.
+   * After calling this method, the client instance should not be reused. Create a new client instance
+   * if you need to reconnect.
+   * 
+   * @param code Optional close code
+   * @param reason Optional human-readable reason for closing the connection
+   * 
+   * @example
+   * ```ts
+   * const client = new Client('ws://localhost:8080');
+   * 
+   * // ... use the client ...
+   * 
+   * // Close with default normal closure code
+   * client.close();
+   * 
+   * // Close with custom code and reason
+   * client.close(1001, 'Client shutting down');
+   * ```
+   * 
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close | WebSocket.close() on MDN}
+   */
+  public close(
+    code? : number,
+    reason? : string
+  ) : void {
+    this.connection.close(code, reason);
   }
 
   /**

@@ -12,7 +12,7 @@
  * 
  * // Call methods
  * const allowlist = await client.call('minecraft:allowlist');
- * console.log('Whitelisted players:', allowlist.allowlist);
+ * console.log('Whitelisted players:', allowlist);
  * 
  * // Listen for notifications
  * client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
@@ -27,7 +27,7 @@
  * });
  * 
  * // Get current difficulty
- * const { difficulty } = await client.call('minecraft:serversettings/difficulty');
+ * const difficulty = await client.call('minecraft:serversettings/difficulty');
  * console.log('Current difficulty:', difficulty);
  * 
  * // Set difficulty to hard
@@ -41,7 +41,7 @@
  * });
  * 
  * // Get all connected players
- * const { players } = await client.call('minecraft:players');
+ * const players = await client.call('minecraft:players');
  * 
  * // Add player to allowlist
  * await client.call('minecraft:allowlist/add', {
