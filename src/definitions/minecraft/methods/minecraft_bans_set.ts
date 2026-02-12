@@ -3,10 +3,11 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
 
 
 /**
- * Set the banlist
+ * Set the banlist.
  */
 export type MinecraftBansSet = MethodObjectDefinition<
   'minecraft:bans/set',
   [{ bans : UserBanObject[] }],
-  { banlist? : UserBanObject[] }
+  /** banlist */
+  UserBanObject[]
 >

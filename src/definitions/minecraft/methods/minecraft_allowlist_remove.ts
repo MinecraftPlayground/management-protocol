@@ -3,10 +3,11 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
 
 
 /**
- * Remove players from allowlist
+ * Remove players from allowlist.
  */
 export type MinecraftAllowlistRemove = MethodObjectDefinition<
   'minecraft:allowlist/remove',
   [{ remove : PlayerObject[] }],
-  { allowlist? : PlayerObject[] }
+  /** allowlist */
+  PlayerObject[]
 >

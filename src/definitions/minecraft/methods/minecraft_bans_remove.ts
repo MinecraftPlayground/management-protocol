@@ -3,10 +3,11 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
 
 
 /**
- * Remove players from ban list
+ * Remove players from ban list.
  */
 export type MinecraftBansRemove = MethodObjectDefinition<
   'minecraft:bans/remove',
   [{ remove : PlayerObject[] }],
-  { banlist? : UserBanObject[] }
+  /** banlist */
+  UserBanObject[]
 >

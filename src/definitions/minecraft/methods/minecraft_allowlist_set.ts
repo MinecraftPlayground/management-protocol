@@ -3,10 +3,11 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
 
 
 /**
- * Set the allowlist
+ * Set the allowlist.
  */
 export type MinecraftAllowlistSet = MethodObjectDefinition<
   'minecraft:allowlist/set',
   [{ players : PlayerObject[] }],
-  { allowlist? : PlayerObject[] }
+  /** allowlist */
+  PlayerObject[]
 >

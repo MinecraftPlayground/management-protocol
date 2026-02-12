@@ -3,10 +3,11 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
 
 
 /**
- * Set all oped players
+ * Set all oped players.
  */
 export type MinecraftOperatorsSet = MethodObjectDefinition<
   'minecraft:operators/set',
   [{ operators : OperatorObject[] }],
-  { operators? : OperatorObject[] }
+  /** operators */
+  OperatorObject[]
 >

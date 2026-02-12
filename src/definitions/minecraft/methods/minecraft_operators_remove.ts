@@ -3,10 +3,11 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
 
 
 /**
- * Deop players
+ * Deop players.
  */
 export type MinecraftOperatorsRemove = MethodObjectDefinition<
   'minecraft:operators/remove',
   [{ remove : PlayerObject[] }],
-  { operators? : OperatorObject[] }
+  /** operators */
+  OperatorObject[]
 >
