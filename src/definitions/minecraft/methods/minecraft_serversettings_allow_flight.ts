@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsAllowFlight = MethodObjectDefinition<
   'minecraft:serversettings/allow_flight',
-  never[],
+  [],
   /** allowed */
   boolean
 >

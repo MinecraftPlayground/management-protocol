@@ -6,5 +6,5 @@ import type { NotificationObjectDefinition } from '../../../json_rpc/schema/inde
  */
 export type MinecraftNotificationServerActivity = NotificationObjectDefinition<
   'minecraft:notification/server/activity',
-  never[]
+  []
 >

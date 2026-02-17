@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsMaxPlayers = MethodObjectDefinition<
   'minecraft:serversettings/max_players',
-  never[],
+  [],
   /** max */
   number
 >

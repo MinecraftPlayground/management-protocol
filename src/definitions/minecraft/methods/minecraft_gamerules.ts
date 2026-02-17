@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftGamerules = MethodObjectDefinition<
   'minecraft:gamerules',
-  never[],
+  [],
   /** gamerules */
   TypedGameRuleObject[]
 >

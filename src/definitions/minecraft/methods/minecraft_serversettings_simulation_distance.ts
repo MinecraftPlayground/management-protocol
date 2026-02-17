@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsSimulationDistance = MethodObjectDefinition<
   'minecraft:serversettings/simulation_distance',
-  never[],
+  [],
   /** distance */
   number
 >

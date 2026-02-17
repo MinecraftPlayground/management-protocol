@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsViewDistance = MethodObjectDefinition<
   'minecraft:serversettings/view_distance',
-  never[],
+  [],
   /** distance */
   number
 >

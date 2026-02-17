@@ -6,5 +6,5 @@ import type { NotificationObjectDefinition } from '../../../json_rpc/schema/inde
  */
 export type MinecraftNotificationServerStopping = NotificationObjectDefinition<
   'minecraft:notification/server/stopping',
-  never[]
+  []
 >

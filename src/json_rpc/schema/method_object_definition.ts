@@ -8,7 +8,7 @@ import type { Definition } from './definition.ts';
  * and expects a response from the server.
  * 
  * @template Name Method  name (ex. `'minecraft:players'`)
- * @template Params Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `never[]`)
+ * @template Params Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `[]`)
  * @template Result Result type (ex. `{ players?: PlayerObject[] }`)
  * 
  * @example
@@ -16,7 +16,7 @@ import type { Definition } from './definition.ts';
  * // Method without parameters
  * type GetPlayersMethod = MethodObjectDefinition<
  *   'minecraft:players',
- *   never[],
+ *   [],
  *   { players?: PlayerObject[] }
  * >;
  * 

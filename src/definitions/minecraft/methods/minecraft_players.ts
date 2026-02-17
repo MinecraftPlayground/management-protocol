@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftPlayers = MethodObjectDefinition<
   'minecraft:players',
-  never[],
+  [],
   /** players */
   PlayerObject[]
 >

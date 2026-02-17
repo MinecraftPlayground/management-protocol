@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsGameMode = MethodObjectDefinition<
   'minecraft:serversettings/game_mode',
-  never[],
+  [],
   /** mode */
   GameType
 >

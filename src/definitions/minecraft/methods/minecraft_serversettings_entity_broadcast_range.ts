@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsEntityBroadcastRange = MethodObjectDefinition<
   'minecraft:serversettings/entity_broadcast_range',
-  never[],
+  [],
   /** percentage_points */
   number
 >

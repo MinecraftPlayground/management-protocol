@@ -1,4 +1,4 @@
-import type { Definition, ExtractParams, ExtractResult, NotificationObjectDefinition, ParamsNever } from './json_rpc/schema/index.ts';
+import type { Definition, ExtractParams, ExtractResult, NotificationObjectDefinition } from './json_rpc/schema/index.ts';
 import type { minecraft } from './definitions/index.ts';
 import type { PendingRequest } from './pending_request.ts';
 import type { ResponseObject } from './json_rpc/communication/response_object.ts';
@@ -177,7 +177,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
    */
   public async call<MethodName extends Definitions['name']>(
     method : MethodName,
-    ...params : ParamsNever<ExtractParams<Definitions, MethodName>>
+    ...params : ExtractParams<Definitions, MethodName>
   ) : Promise<ExtractResult<Definitions, MethodName>> {
     await this.ready;
 

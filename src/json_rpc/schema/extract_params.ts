@@ -20,7 +20,7 @@ import type { Definition } from './definition.ts';
  * 
  * // Extract params for a method without parameters
  * type GetAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist'>;
- * // never[]
+ * // []
  * 
  * // Extract params for a notification with parameters
  * type PlayerJoinedParams = ExtractParams<

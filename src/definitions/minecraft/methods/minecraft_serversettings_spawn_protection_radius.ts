@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsSpawnProtectionRadius = MethodObjectDefinition<
   'minecraft:serversettings/spawn_protection_radius',
-  never[],
+  [],
   /** radius */
   number
 >

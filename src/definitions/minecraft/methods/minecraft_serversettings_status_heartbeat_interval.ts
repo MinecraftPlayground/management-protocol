@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsStatusHeartbeatInterval = MethodObjectDefinition<
   'minecraft:serversettings/status_heartbeat_interval',
-  never[],
+  [],
   /** seconds */
   number
 >

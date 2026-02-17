@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftBans = MethodObjectDefinition<
   'minecraft:bans',
-  never[],
+  [],
   /** banlist */
   UserBanObject[]
 >

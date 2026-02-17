@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsAcceptTransfers = MethodObjectDefinition<
   'minecraft:serversettings/accept_transfers',
-  never[],
+  [],
   /** accepted */
   boolean
 >

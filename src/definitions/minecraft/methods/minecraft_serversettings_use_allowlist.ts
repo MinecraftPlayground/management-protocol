@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsUseAllowlist = MethodObjectDefinition<
   'minecraft:serversettings/use_allowlist',
-  never[],
+  [],
   /** used */
   boolean
 >

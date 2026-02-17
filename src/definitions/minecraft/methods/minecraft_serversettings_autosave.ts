@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsAutosave = MethodObjectDefinition<
   'minecraft:serversettings/autosave',
-  never[],
+  [],
   /** enabled */
   boolean
 >

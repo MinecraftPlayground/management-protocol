@@ -8,7 +8,7 @@ import type { Definition } from './definition.ts';
  * They follow a fire-and-forget pattern for event broadcasting.
  * 
  * @template Name Notification name (ex. `'minecraft:notification/players/joined'`)
- * @template Params Tuple type of parameters (ex. `[{ player: PlayerObject }]` or `never[]`)
+ * @template Params Tuple type of parameters (ex. `[{ player: PlayerObject }]` or `[]`)
  * @template Result Usually unknown for notifications as they don't have responses
  * 
  * @example
@@ -16,7 +16,7 @@ import type { Definition } from './definition.ts';
  * // Notification without parameters
  * type ServerStartedNotification = NotificationObjectDefinition<
  *   'minecraft:notification/server/started',
- *   never[]
+ *   []
  * >;
  * 
  * // Notification with parameters

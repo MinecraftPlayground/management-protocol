@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftIpBans = MethodObjectDefinition<
   'minecraft:ip_bans',
-  never[],
+  [],
   /** banlist */
   IpBanObject[]
 >

@@ -6,7 +6,7 @@ import type { MethodObjectDefinition } from '../../../json_rpc/schema/index.ts';
  */
 export type MinecraftServersettingsPauseWhenEmptySeconds = MethodObjectDefinition<
   'minecraft:serversettings/pause_when_empty_seconds',
-  never[],
+  [],
   /** seconds */
   number
 >

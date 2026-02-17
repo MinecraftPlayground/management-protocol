@@ -6,5 +6,5 @@ import type { NotificationObjectDefinition } from '../../../json_rpc/schema/inde
  */
 export type MinecraftNotificationServerSaving = NotificationObjectDefinition<
   'minecraft:notification/server/saving',
-  never[]
+  []
 >

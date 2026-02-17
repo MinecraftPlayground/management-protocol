@@ -9,7 +9,7 @@
  * - {@link NotificationObjectDefinition} for server-initiated notifications
  * 
  * @template Name Method or notification name (ex. `'minecraft:players'`)
- * @template Params Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `never[]`)
+ * @template Params Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `[]`)
  * @template Result Result type (ex. `{ players?: PlayerObject[] }`)
  * 
  * @see {@link MethodObjectDefinition} for method definitions
@@ -31,7 +31,7 @@ export interface Definition<
   /**
    * Tuple of parameters for this method or notification.
    * 
-   * Use never[] for methods/notifications without parameters.
+   * Use [] for methods/notifications without parameters.
    */
   params : Params,
   
