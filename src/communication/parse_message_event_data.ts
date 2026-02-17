@@ -1,6 +1,14 @@
 import type { NotificationObject } from './notification_object.ts';
 import type { ResponseObject } from './response_object.ts';
 
+
+/**
+ * Parse the data of a WebSocket message event.
+ * 
+ * @param data Data to parse
+ * 
+ * @returns Parsed data
+ */
 export function parseMessageEventData(data : string) : ResponseObject | NotificationObject {
   let rawData : Record<string, unknown> = {};
   try {
