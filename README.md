@@ -19,7 +19,6 @@ const client = new Client('ws://localhost:25576', {
 ```
 
 ### Calling Methods
-
 Methods follow a request/response pattern. Parameters are fully type-safe.
 
 ```ts
@@ -65,7 +64,6 @@ client.removeNotificationListener('minecraft:notification/players/joined', onJoi
 ---
 
 ## Custom Methods & Notifications
-
 The client is fully generic - you can extend the default definitions with your own definitions.
 
 ### Custom Method
@@ -119,16 +117,13 @@ client.addNotificationListener('custom:notification/player/greeted', ({ player }
 ---
 
 ## API Reference
-
 ### `new Client(url, options?)`
-
 | Parameter | Type | Description |
 |---|---|---|
 | `url` | `ConnectionAddress` | WebSocket URL (`ws://` or `wss://`) |
 | `options.token` | `string` (optional) | Bearer token for authentication |
 
 ### Methods
-
 | Method | Description |
 |---|---|
 | `call(method, ...params)` | Call a JSON-RPC method, returns a `Promise` with the result |
@@ -137,7 +132,6 @@ client.addNotificationListener('custom:notification/player/greeted', ({ player }
 | `close(code?, reason?)` | Close the WebSocket connection |
 
 ### Schema Utilities
-
 Available from `@minecraft-server/management-protocol/schema`:
 
 | Type | Description |
@@ -150,6 +144,7 @@ Available from `@minecraft-server/management-protocol/schema`:
 ---
 
 ## Available Methods
+Available from `@minecraft-server/management-protocol/definitions`:
 
 <details>
 <summary><strong>Players</strong></summary>
@@ -278,6 +273,7 @@ Available from `@minecraft-server/management-protocol/schema`:
 ---
 
 ## Available Notifications
+Available from `@minecraft-server/management-protocol/definitions`:
 
 <details>
 <summary><strong>Players</strong></summary>
