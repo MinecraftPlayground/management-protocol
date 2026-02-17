@@ -123,7 +123,7 @@ client.addNotificationListener('custom:notification/player/greeted', ({ player }
 | `url` | `ConnectionAddress` | WebSocket URL (`ws://` or `wss://`) |
 | `options.token` | `string` (optional) | Bearer token for authentication |
 
-### Methods
+#### Methods
 | Method | Description |
 |---|---|
 | `call(method, ...params)` | Call a JSON-RPC method, returns a `Promise` with the result |
