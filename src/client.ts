@@ -19,6 +19,9 @@ import type { ConnectionAddress } from './connection_address.ts';
  * 
  * @example
  * ```ts
+ * import { Client } from '@minecraft-server/management-protocol';
+ * 
+ * 
  * const client = new Client('ws://localhost:25576', {
  *   token: 'your-auth-token-here'
  * });
@@ -48,8 +51,16 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
+   * import { Client } from '@minecraft-server/management-protocol';
+   * 
+   * 
    * // Connect without authentication
    * const client = new Client('ws://localhost:25576');
+   * ```
+   * @example
+   * ```ts
+   * import { Client } from '@minecraft-server/management-protocol';
+   * 
    * 
    * // Connect with authentication token
    * const client = new Client('ws://localhost:25576', {
@@ -128,6 +139,9 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
+   * import { Client } from '@minecraft-server/management-protocol';
+   * 
+   * 
    * const client = new Client('ws://localhost:8080');
    * 
    * // ... use the client ...
@@ -161,17 +175,24 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
+   * import { Client } from '@minecraft-server/management-protocol';
+   * 
+   * 
+   * const client = new Client('ws://localhost:25576');
+   *
    * // Method without parameters
    * const players = await client.call('minecraft:players');
+   * ```
+   * @example
+   * ```ts
+   * import { Client } from '@minecraft-server/management-protocol';
    * 
+   * 
+   * const client = new Client('ws://localhost:25576');
+   *
    * // Method with parameters
    * await client.call('minecraft:allowlist/add', {
    *   add: [{ id: 'uuid', name: 'PlayerName' }]
-   * });
-   * 
-   * // Set server difficulty
-   * await client.call('minecraft:serversettings/difficulty/set', {
-   *   difficulty: 'hard'
    * });
    * ```
    */
@@ -212,6 +233,11 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
+   * import { Client } from '@minecraft-server/management-protocol';
+   * 
+   * 
+   * const client = new Client('ws://localhost:25576');
+   *
    * // Listen for player joined notifications
    * client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
    *   console.log(`${player.name} joined the server`);
@@ -238,7 +264,13 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * @example
    * ```ts
-   * const onPlayerJoined = ({ player }) => {
+   * import { Client } from '@minecraft-server/management-protocol';
+   * import { minecraft } from '@minecraft-server/management-protocol/definitions';
+   * 
+   * 
+   * const client = new Client('ws://localhost:25576');
+   *
+   * const onPlayerJoined = ({ player } : { player : minecraft.schema.PlayerObject }) => {
    *   console.log(`${player.name} joined`);
    * };
    * 

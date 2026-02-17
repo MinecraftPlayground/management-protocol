@@ -6,6 +6,9 @@
  * 
  * @example
  * ```ts
+ * import { Client } from '@minecraft-server/management-protocol';
+ * 
+ * 
  * const client = new Client('ws://localhost:25576', {
  *   token: 'my-secret-token'
  * });
@@ -22,6 +25,9 @@
  * 
  * @example
  * ```ts
+ * import { Client } from '@minecraft-server/management-protocol';
+ * 
+ * 
  * const client = new Client('ws://localhost:25576', {
  *   token: 'my-secret-token'
  * });
@@ -36,6 +42,9 @@
  * 
  * @example
  * ```ts
+ * import { Client } from '@minecraft-server/management-protocol';
+ * 
+ * 
  * const client = new Client('ws://localhost:25576', {
  *   token: 'my-secret-token'
  * });
@@ -62,3 +71,4 @@
 
 export { Client } from './client.ts'
 export type { ClientOptions } from './client_options.ts'
+export type { ConnectionAddress } from './connection_address.ts'
