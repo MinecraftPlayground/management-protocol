@@ -4,7 +4,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./definitions": "./src/definitions/index.ts",
-    "./schema": "./src/json_rpc/schema/index.ts"
+    "./schema": "./src/schema/index.ts"
   },
   "tasks": {
     "lint": {

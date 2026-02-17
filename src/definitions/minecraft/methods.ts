@@ -68,6 +68,9 @@ import type { MinecraftServersettingsViewDistance } from './methods/minecraft_se
 import type { MinecraftServersettingsViewDistanceSet } from './methods/minecraft_serversettings_view_distance_set.ts';
 
 
+/**
+ * All Minecraft methods.
+ */
 export type All =
   | MinecraftAllowlist
   | MinecraftAllowlistAdd
@@ -137,6 +140,7 @@ export type All =
   | MinecraftServersettingsUseAllowlistSet
   | MinecraftServersettingsViewDistance
   | MinecraftServersettingsViewDistanceSet;
+
 
 export type { MinecraftAllowlist };
 export type { MinecraftAllowlistAdd };

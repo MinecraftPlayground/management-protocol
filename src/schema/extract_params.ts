@@ -12,7 +12,7 @@ import type { Definition } from './definition.ts';
  * 
  * @example
  * ```ts
- * import type { minecraft } from './definitions/index.ts';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * // Extract params for a method with parameters
  * type AddToAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist/add'>;

@@ -7,10 +7,12 @@
 import type { All as AllMethods } from './methods.ts';
 import type { All as AllNotifications } from './notifications.ts'
 
-
+/**
+ * All Minecraft definitions.
+ */
 export type All =
-| AllMethods
-| AllNotifications
+  | AllMethods
+  | AllNotifications
 
 export type { Extend } from './extend.ts'
 export type * as methods from './methods.ts';

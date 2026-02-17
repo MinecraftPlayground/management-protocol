@@ -8,4 +8,7 @@ import type { All as AllMethods } from './methods.ts';
  * 
  * @template CustomDefinition Definition to extend the default Minecraft definitions with
  */
-export type Extend<CustomDefinition extends Definition> = AllNotifications | AllMethods | CustomDefinition
+export type Extend<CustomDefinition extends Definition> = 
+  | AllNotifications
+  | AllMethods
+  | CustomDefinition

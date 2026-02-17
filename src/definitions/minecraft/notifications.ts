@@ -18,6 +18,9 @@ import type { MinecraftNotificationServerStatus } from './notifications/minecraf
 import type { MinecraftNotificationServerStopping } from './notifications/minecraft_notification_server_stopping.ts';
 
 
+/**
+ * All Minecraft notifications.
+ */
 export type All =
   | MinecraftNotificationAllowlistAdded
   | MinecraftNotificationAllowlistRemoved
