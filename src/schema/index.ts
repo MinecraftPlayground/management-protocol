@@ -1,3 +1,9 @@
+/**
+ * This module contains scheam type generics for the management protocol.
+ * 
+ * @module
+ */
+
 export type { ExtractParams } from './extract_params.ts';
 export type { ExtractResult } from './extract_result.ts';
 export type { Definition } from './definition.ts'

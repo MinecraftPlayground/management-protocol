@@ -13,12 +13,20 @@ import type { Definition } from './definition.ts';
  * 
  * @example
  * ```ts
+ * import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * 
+ * 
  * // Method without parameters
  * type GetPlayersMethod = MethodObjectDefinition<
  *   'minecraft:players',
  *   [],
  *   { players?: PlayerObject[] }
  * >;
+ * ```
+ * @example
+ * ```ts
+ * import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * 
  * 
  * // Method with parameters
  * type SetDifficultyMethod = MethodObjectDefinition<

@@ -12,7 +12,8 @@ import type { Definition } from './definition.ts';
  * 
  * @example
  * ```ts
- * import type { minecraft } from './definitions/index.ts';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
+ * 
  * 
  * // Extract result for a method
  * type GetAllowlistResult = ExtractResult<minecraft.All, 'minecraft:allowlist'>;
@@ -26,6 +27,12 @@ import type { Definition } from './definition.ts';
  *   'minecraft:serversettings/difficulty/set'
  * >;
  * // { difficulty?: Difficulty }
+ * ```
+ * @example
+ * ```ts
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
+ * import type { ExtractResult } from '@minecraft-server/management-protocol/schema';
+ * 
  * 
  * // Usage in Promise return type
  * async function callMethod<Name extends minecraft.All['name']>(

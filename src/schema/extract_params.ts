@@ -13,6 +13,7 @@ import type { Definition } from './definition.ts';
  * @example
  * ```ts
  * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
+ * import type { ExtractParams } from '@minecraft-server/management-protocol/schema';
  * 
  * // Extract params for a method with parameters
  * type AddToAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist/add'>;
@@ -28,6 +29,12 @@ import type { Definition } from './definition.ts';
  *   'minecraft:notification/players/joined'
  * >;
  * // [{ player: PlayerObject }]
+ * ```
+ * @example
+ * ```ts
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
+ * import type { ExtractParams } from '@minecraft-server/management-protocol/schema';
+ * 
  * 
  * // Usage in function signature
  * function handleCall<Name extends minecraft.All['name']>(

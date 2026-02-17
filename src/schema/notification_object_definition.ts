@@ -13,11 +13,19 @@ import type { Definition } from './definition.ts';
  * 
  * @example
  * ```ts
+ * import type { NotificationObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * 
+ * 
  * // Notification without parameters
  * type ServerStartedNotification = NotificationObjectDefinition<
  *   'minecraft:notification/server/started',
  *   []
  * >;
+ * ```
+ * @example
+ * ```ts
+ * import type { NotificationObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * 
  * 
  * // Notification with parameters
  * type PlayerJoinedNotification = NotificationObjectDefinition<

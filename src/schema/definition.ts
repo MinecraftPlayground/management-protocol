@@ -31,7 +31,7 @@ export interface Definition<
   /**
    * Tuple of parameters for this method or notification.
    * 
-   * Use [] for methods/notifications without parameters.
+   * Use `[]` for methods/notifications without parameters.
    */
   params : Params,
   
