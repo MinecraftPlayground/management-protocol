@@ -37,8 +37,8 @@ export class Client<Definitions extends Definition = minecraft.All> {
   private readonly notificationListeners : Map<string, Set<(...params: unknown[]) => void>> = new Map();
   private readonly pendingRequests : Map<string | number | null, PendingRequest<unknown>> = new Map();
   private readonly ready : Promise<void>;
-  private requestId : number = 0;
   private readonly connection : WebSocket;
+  private requestId : number = 0;
 
   /**
    * Create a new JSON-RPC client.
