@@ -2,14 +2,14 @@
 
 A Minecraft Server JSON-RPC TypeScript Client.
 
-[![Run Linter](https://github.com/MinecraftPlayground/server-management-client/actions/workflows/lint.yml/badge.svg)](https://github.com/MinecraftPlayground/server-management-client/actions/workflows/lint.yml)
-[![Run Unit Tests](https://github.com/MinecraftPlayground/server-management-client/actions/workflows/unit_test.yml/badge.svg)](https://github.com/MinecraftPlayground/server-management-client/actions/workflows/unit_test.yml)
+[![Run Linter](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/lint.yml/badge.svg)](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/lint.yml)
+[![Run Unit Tests](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/unit_test.yml/badge.svg)](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/unit_test.yml)
 
 
 ## Usage
 ### Basics
 ```ts
-import { Client } from './client.ts'
+import { Client } from '@minecraft-server/management-protocol';
 
 
 const client = new Client('ws://localhost:25576', {
@@ -28,7 +28,7 @@ client.addNotificationListener('minecraft:notification/players/joined', ({ playe
 
 ### Getting and setting values
 ```ts
-import { Client } from './client.ts'
+import { Client } from '@minecraft-server/management-protocol';
 
 
 const client = new Client('ws://localhost:25576', {
@@ -44,7 +44,7 @@ await client.call('minecraft:serversettings/difficulty/set', { difficulty: 'hard
 ```
 
 ```ts
-import { Client } from './client.ts'
+import { Client } from '@minecraft-server/management-protocol';
 
 
 const client = new Client('ws://localhost:25576', {
@@ -71,9 +71,9 @@ await client.call('minecraft:players/kick', {
 ## Defining custom methods and notifications
 ### Methods
 ```ts
-import { Client } from './client.ts'
-import type { MethodObjectDefinition } from './schema/index.ts'
-import type { minecraft } from './definitions/index.ts'
+import { Client } from '@minecraft-server/management-protocol';
+import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema'
+import type { minecraft } from '@minecraft-server/management-protocol/definitions'
 
 
 /**
@@ -101,9 +101,10 @@ client.call('custom:player/greet', {
 
 ### Notifications
 ```ts
-import { Client } from './client.ts'
-import type { NotificationObjectDefinition } from './schema/index.ts'
-import type { minecraft } from './definitions/index.ts'
+import { Client } from '@minecraft-server/management-protocol';
+import type { NotificationObjectDefinition } from '@minecraft-server/management-protocol/schema'
+import type { minecraft } from '@minecraft-server/management-protocol/definitions'
+
 
 /**
  * Get notified when the server greets a player
