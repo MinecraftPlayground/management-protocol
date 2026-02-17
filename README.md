@@ -83,7 +83,7 @@ type CustomGreetMethod = MethodObjectDefinition<
 >;
 
 const client = new Client<minecraft.Extend<CustomGreetMethod>>('ws://localhost:25576', {
-  token: 'my-token'
+  token: 'my-secret-token'
 });
 
 const greeted = await client.call('custom:player/greet', {
@@ -106,7 +106,7 @@ type CustomGreetedNotification = NotificationObjectDefinition<
 >;
 
 const client = new Client<minecraft.Extend<CustomGreetedNotification>>('ws://localhost:25576', {
-  token: 'my-token'
+  token: 'my-secret-token'
 });
 
 client.addNotificationListener('custom:notification/player/greeted', ({ player }) => {

@@ -23,7 +23,7 @@ import type { ConnectionAddress } from './connection_address.ts';
  * 
  * 
  * const client = new Client('ws://localhost:25576', {
- *   token: 'your-auth-token-here'
+ *   token: 'my-secret-token'
  * });
  * 
  * // Make a method call
@@ -64,7 +64,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * 
    * // Connect with authentication token
    * const client = new Client('ws://localhost:25576', {
-   *   token: 'your-auth-token-here'
+   *   token: 'my-secret-token'
    * });
    * ```
    */
