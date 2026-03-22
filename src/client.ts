@@ -101,7 +101,11 @@ export class Client<Definitions extends Definition = minecraft.All> {
       const listeners = this.notificationListeners.get(notification.method);
 
       if (listeners) {
-        const params = notification.params ? [notification.params] : []
+        const params = Array.isArray(notification.params)
+          ? notification.params
+          : notification.params !== undefined
+            ? [notification.params]
+            : [];
 
         for (const listener of listeners) {
           listener(...params);
