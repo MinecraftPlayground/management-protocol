@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftPlayersKick = MethodObjectDefinition<
   'minecraft:players/kick',
-  [{ kick : KickPlayerObject[] }],
+  [KickPlayerObject[]],
   /** kicked */
   PlayerObject[]
 >

@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsViewDistanceSet = MethodObjectDefinition<
   'minecraft:serversettings/view_distance/set',
-  [{ distance : number }],
+  /** distance */
+  [number],
   /** distance */
   number
 >

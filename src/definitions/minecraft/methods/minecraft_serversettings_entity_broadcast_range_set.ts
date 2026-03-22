@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsEntityBroadcastRangeSet = MethodObjectDefinition<
   'minecraft:serversettings/entity_broadcast_range/set',
-  [{ percentage_points : number }],
-  /** percentage_points */
+  /** percentage points */
+  [number],
+  /** percentage points */
   number
 >

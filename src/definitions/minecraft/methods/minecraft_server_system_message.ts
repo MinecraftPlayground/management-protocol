@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServerSystemMessage = MethodObjectDefinition<
   'minecraft:server/system_message',
-  [{ message : SystemMessageObject }],
+  [SystemMessageObject],
   /** sent */
   boolean
 >

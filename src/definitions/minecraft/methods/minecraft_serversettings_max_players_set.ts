@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsMaxPlayersSet = MethodObjectDefinition<
   'minecraft:serversettings/max_players/set',
-  [{ max : number }],
+  /** max */
+  [number],
   /** max */
   number
 >

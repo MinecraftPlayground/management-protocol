@@ -3,6 +3,6 @@ import type { PlayerObject } from './player_object.ts';
 
 export interface SystemMessageObject {
   message? : MessageObject,
-  overlay? : boolean,
+  overlay : boolean,
   receivingPlayers? : PlayerObject[]
 }

@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsGameModeSet = MethodObjectDefinition<
   'minecraft:serversettings/game_mode/set',
-  [{ mode : GameType }],
+  [GameType],
   /** mode */
   GameType
 >

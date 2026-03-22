@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServerSave = MethodObjectDefinition<
   'minecraft:server/save',
-  [{ flush : boolean }],
+  /* flush */
+  [boolean],
   /** saving */
   boolean
 >

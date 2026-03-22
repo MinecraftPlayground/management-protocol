@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsPlayerIdleTimeoutSet = MethodObjectDefinition<
   'minecraft:serversettings/player_idle_timeout/set',
-  [{ seconds : number }],
+  /** seconds */
+  [number],
   /** seconds */
   number
 >

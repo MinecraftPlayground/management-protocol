@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsAcceptTransfersSet = MethodObjectDefinition<
   'minecraft:serversettings/accept_transfers/set',
-  [{ accept : boolean }],
-  /** accepted */
+  /** accept */
+  [boolean],
+  /** accept */
   boolean
 >

@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftAllowlistRemove = MethodObjectDefinition<
   'minecraft:allowlist/remove',
-  [{ remove : PlayerObject[] }],
+  [PlayerObject[]],
   /** allowlist */
   PlayerObject[]
 >

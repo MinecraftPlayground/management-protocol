@@ -217,7 +217,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
     };
 
     if (params.length > 0) {
-      request.params = [params];
+      request.params = params;
     }
 
     return new Promise((resolve, reject) => {

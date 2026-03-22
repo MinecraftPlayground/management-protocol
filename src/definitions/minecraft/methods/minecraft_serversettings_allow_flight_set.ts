@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsAllowFlightSet = MethodObjectDefinition<
   'minecraft:serversettings/allow_flight/set',
-  [{ allow : boolean }],
-  /** allowed */
+  /** allow */
+  [boolean],
+  /** allow */
   boolean
 >

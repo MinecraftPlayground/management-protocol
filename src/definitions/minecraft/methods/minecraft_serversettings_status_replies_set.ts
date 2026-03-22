@@ -6,7 +6,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsStatusRepliesSet = MethodObjectDefinition<
   'minecraft:serversettings/status_replies/set',
-  [{ enable : boolean }],
+  /** enabled */
+  [boolean],
   /** enabled */
   boolean
 >
