@@ -26,17 +26,16 @@ Methods follow a request/response pattern. Parameters are fully type-safe.
 const players = await client.call('minecraft:players');
 
 // With parameters
-await client.call('minecraft:allowlist/add', {
-  add: [{ id: 'uuid-here', name: 'PlayerName' }]
-});
+await client.call('minecraft:allowlist/add', [{
+  id: 'uuid-here',
+  name: 'PlayerName'
+}]);
 
 // Kick a player
-await client.call('minecraft:players/kick', {
-  kick: [{
-    player: { id: 'uuid', name: 'PlayerName' },
-    message: { literal: 'You have been kicked' }
-  }]
-});
+await client.call('minecraft:players/kick', [{
+  player: { id: 'uuid', name: 'PlayerName' },
+  message: { literal: 'You have been kicked' }
+}]);
 ```
 
 ### Getting & Setting Server Settings
@@ -46,7 +45,7 @@ const difficulty = await client.call('minecraft:serversettings/difficulty');
 console.log('Current difficulty:', difficulty); // 'peaceful' | 'easy' | 'normal' | 'hard'
 
 // Set difficulty
-await client.call('minecraft:serversettings/difficulty/set', { difficulty: 'hard' });
+await client.call('minecraft:serversettings/difficulty/set', 'hard');
 ```
 
 ### Listening for Notifications

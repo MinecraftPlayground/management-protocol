@@ -31,7 +31,7 @@ import type { ConnectionAddress } from './connection_address.ts';
  * console.log(players);
  * 
  * // Listen for notifications
- * client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
+ * client.addNotificationListener('minecraft:notification/players/joined', (player) => {
  *   console.log(`${player.name} joined the server`);
  * });
  * ```
@@ -201,9 +201,10 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * });
    *
    * // Method with parameters
-   * await client.call('minecraft:allowlist/add', {
-   *   add: [{ id: 'uuid', name: 'PlayerName' }]
-   * });
+   * await client.call('minecraft:allowlist/add', [{
+   *   id: 'uuid',
+   *   name: 'PlayerName'
+   * }]);
    * ```
    */
   public async call<MethodName extends Definitions['name']>(
@@ -251,12 +252,12 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * });
    *
    * // Listen for player joined notifications
-   * client.addNotificationListener('minecraft:notification/players/joined', ({ player }) => {
+   * client.addNotificationListener('minecraft:notification/players/joined', (player) => {
    *   console.log(`${player.name} joined the server`);
    * });
    * 
    * // Listen for server status updates
-   * client.addNotificationListener('minecraft:notification/server/status', ({ status }) => {
+   * client.addNotificationListener('minecraft:notification/server/status', (status) => {
    *   console.log(`Server has ${status.player?.length ?? 0} players online`);
    * });
    * ```
@@ -291,7 +292,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
    *   token: 'my-secret-token'
    * });
    *
-   * const onPlayerJoined = ({ player } : { player : minecraft.schema.PlayerObject }) => {
+   * const onPlayerJoined = (player : minecraft.schema.PlayerObject) => {
    *   console.log(`${player.name} joined`);
    * };
    * 
