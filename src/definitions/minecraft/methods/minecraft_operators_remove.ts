@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftOperatorsRemove = MethodObjectDefinition<
   'minecraft:operators/remove',
-  [{ remove : PlayerObject[] }],
+  PlayerObject[],
   /** operators */
   OperatorObject[]
 >

@@ -217,7 +217,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
     };
 
     if (params.length > 0) {
-      request.params = params[0];
+      request.params = [params];
     }
 
     return new Promise((resolve, reject) => {
@@ -261,7 +261,14 @@ export class Client<Definitions extends Definition = minecraft.All> {
     method : MethodName,
     listener : (...params : ExtractParams<Definitions, MethodName>) => void
   ) : void {
-    this.notificationListeners.get(method)?.add(listener);
+    const listenersForMethod = this.notificationListeners.get(method);
+
+    if (!listenersForMethod) {
+      this.notificationListeners.set(method, new Set([listener]));
+      return;
+    }
+
+    listenersForMethod.add(listener);
   }
 
   /**

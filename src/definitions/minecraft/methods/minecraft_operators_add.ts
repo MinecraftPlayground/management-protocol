@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftOperatorsAdd = MethodObjectDefinition<
   'minecraft:operators/add',
-  [{ add : OperatorObject[] }],
+  OperatorObject[],
   /** operators */
   OperatorObject[]
 >
