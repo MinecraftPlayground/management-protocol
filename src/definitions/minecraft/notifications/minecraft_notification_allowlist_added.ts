@@ -7,5 +7,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationAllowlistAdded = NotificationObjectDefinition<
   'minecraft:notification/allowlist/added',
-  [{ player : PlayerObject }]
+  [PlayerObject]
 >

@@ -7,5 +7,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationOperatorsRemoved = NotificationObjectDefinition<
   'minecraft:notification/operators/removed',
-  [{ player : OperatorObject }]
+  [OperatorObject]
 >

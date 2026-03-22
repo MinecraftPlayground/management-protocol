@@ -7,5 +7,5 @@ import type { ServerStateObject } from '../schemas.ts';
  */
 export type MinecraftNotificationServerStatus = NotificationObjectDefinition<
   'minecraft:notification/server/status',
-  [{ status : ServerStateObject }]
+  [ServerStateObject]
 >

@@ -7,5 +7,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationOperatorsAdded = NotificationObjectDefinition<
   'minecraft:notification/operators/added',
-  [{ player : OperatorObject }]
+  [OperatorObject]
 >

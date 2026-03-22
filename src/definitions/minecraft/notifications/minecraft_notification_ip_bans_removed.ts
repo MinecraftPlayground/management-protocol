@@ -6,5 +6,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationIpBansRemoved = NotificationObjectDefinition<
   'minecraft:notification/ip_bans/removed',
-  [{ player : string }]
+  [string]
 >
