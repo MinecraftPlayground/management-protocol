@@ -5,3 +5,4 @@
  */
 
 export * as minecraft from './minecraft/index.ts'
+export * as rpc from './rpc/index.ts'

@@ -1,5 +1,5 @@
 import type { Definition, ExtractParams, ExtractResult, NotificationObjectDefinition } from './schema/index.ts';
-import type { minecraft } from './definitions/index.ts';
+import type { minecraft, rpc } from './definitions/index.ts';
 import type { PendingRequest } from './communication/pending_request.ts';
 import type { ResponseObject } from './communication/response_object.ts';
 import type { NotificationObject } from './communication/notification_object.ts';
@@ -36,7 +36,7 @@ import type { ConnectionAddress } from './connection_address.ts';
  * });
  * ```
  */
-export class Client<Definitions extends Definition = minecraft.All> {
+export class Client<Definitions extends Definition = minecraft.All | rpc.All> {
   private readonly notificationListeners : Map<string, Set<(...params: unknown[]) => void>> = new Map();
   private readonly pendingRequests : Map<string | number | null, PendingRequest<unknown>> = new Map();
   private readonly ready : Promise<void>;
