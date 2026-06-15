@@ -36,7 +36,7 @@ import type { ConnectionAddress } from './connection_address.ts';
  * });
  * ```
  */
-export class Client<Definitions extends Definition = minecraft.All | rpc.All> {
+export class Client<Definitions extends Definition = minecraft.All> {
   private readonly notificationListeners : Map<string, Set<(...params: unknown[]) => void>> = new Map();
   private readonly pendingRequests : Map<string | number | null, PendingRequest<unknown>> = new Map();
   private readonly ready : Promise<void>;
@@ -207,7 +207,7 @@ export class Client<Definitions extends Definition = minecraft.All | rpc.All> {
    * }]);
    * ```
    */
-  public async call<MethodName extends Definitions['name']>(
+  public async call<MethodName extends Definitions['name'] | rpc.All['name']>(
     method : MethodName,
     ...params : ExtractParams<Definitions, MethodName>
   ) : Promise<ExtractResult<Definitions, MethodName>> {
