@@ -262,7 +262,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * });
    * ```
    */
-  public addNotificationListener<MethodName extends Extract<Definitions, NotificationObjectDefinition>['name']>(
+  public addNotificationListener<MethodName extends Extract<Definitions, NotificationObjectDefinition<string>>['name']>(
     method : MethodName,
     listener : (...params : ExtractParams<Definitions, MethodName>) => void
   ) : void {
@@ -303,7 +303,7 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * client.removeNotificationListener('minecraft:notification/players/joined', onPlayerJoined);
    * ```
    */
-  public removeNotificationListener<MethodName extends Extract<Definitions, NotificationObjectDefinition>['name']>(
+  public removeNotificationListener<MethodName extends Extract<Definitions, NotificationObjectDefinition<string>>['name']>(
     method : MethodName,
     listener : (...params : ExtractParams<Definitions, MethodName>) => void
   ) : void {

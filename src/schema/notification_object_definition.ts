@@ -35,7 +35,7 @@ import type { Definition } from './definition.ts';
  * ```
  */
 export interface NotificationObjectDefinition<
-  Name extends string = string,
+  Name extends string,
   Params extends unknown[] = unknown[],
 > extends Definition<Name, Params, never> {
   /**
