@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsAutosaveSet = MethodObjectDefinition<
   'minecraft:serversettings/autosave/set',
-  /** enabled */
-  [boolean],
+  [enable: boolean],
   /** enabled */
   boolean
 >

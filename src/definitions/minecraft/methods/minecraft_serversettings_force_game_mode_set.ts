@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsForceGameModeSet = MethodObjectDefinition<
   'minecraft:serversettings/force_game_mode/set',
-  /** forced */
-  [boolean],
+  [force: boolean],
   /** forced */
   boolean
 >

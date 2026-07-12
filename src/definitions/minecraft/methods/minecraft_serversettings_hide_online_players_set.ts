@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsHideOnlinePlayersSet = MethodObjectDefinition<
   'minecraft:serversettings/hide_online_players/set',
-  /** hidden */
-  [boolean],
+  [hide: boolean],
   /** hidden */
   boolean
 >

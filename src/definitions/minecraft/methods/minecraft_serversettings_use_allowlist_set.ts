@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsUseAllowlistSet = MethodObjectDefinition<
   'minecraft:serversettings/use_allowlist/set',
-  /** used */
-  [boolean],
+  [use: boolean],
   /** used */
   boolean
 >

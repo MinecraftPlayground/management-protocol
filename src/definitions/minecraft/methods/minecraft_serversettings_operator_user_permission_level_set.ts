@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsOperatorUserPermissionLevelSet = MethodObjectDefinition<
   'minecraft:serversettings/operator_user_permission_level/set',
-  /** level */
-  [number],
+  [level: number],
   /** level */
   number
 >

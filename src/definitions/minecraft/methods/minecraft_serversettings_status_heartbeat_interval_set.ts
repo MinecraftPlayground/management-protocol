@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsStatusHeartbeatIntervalSet = MethodObjectDefinition<
   'minecraft:serversettings/status_heartbeat_interval/set',
-  /** seconds */
-  [number],
+  [seconds: number],
   /** seconds */
   number
 >

@@ -7,5 +7,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationPlayersLeft = NotificationObjectDefinition<
   'minecraft:notification/players/left',
-  [PlayerObject]
+  [player: PlayerObject]
 >

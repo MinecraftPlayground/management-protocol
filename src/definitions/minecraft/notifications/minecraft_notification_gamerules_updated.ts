@@ -7,5 +7,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationGamerulesUpdated = NotificationObjectDefinition<
   'minecraft:notification/gamerules/updated',
-  [TypedGameRuleObject]
+  [gamerule: TypedGameRuleObject]
 >

@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftOperatorsSet = MethodObjectDefinition<
   'minecraft:operators/set',
-  [OperatorObject[]],
+  [operators: OperatorObject[]],
   /** operators */
   OperatorObject[]
 >

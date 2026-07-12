@@ -16,6 +16,8 @@ import type { ConnectionAddress } from './connection_address.ts';
  * Supports method calls and notifications (server-initiated events).
  * 
  * @template Definitions Union type of all available method and notification definitions
+ * @template DefinitionsWithRPCDefinitions Union type of `Definitions` generic and `rpc.All` definitions; **Only for
+ * internal use!**
  * 
  * @example
  * ```ts
@@ -36,7 +38,10 @@ import type { ConnectionAddress } from './connection_address.ts';
  * });
  * ```
  */
-export class Client<Definitions extends Definition = minecraft.All> {
+export class Client<
+  Definitions extends Definition = minecraft.All,
+  DefinitionsWithRPCDefinitions extends Definition = Definitions | rpc.All
+> {
   private readonly notificationListeners : Map<string, Set<(...params: unknown[]) => void>> = new Map();
   private readonly pendingRequests : Map<string | number | null, PendingRequest<unknown>> = new Map();
   private readonly ready : Promise<void>;
@@ -207,10 +212,10 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * }]);
    * ```
    */
-  public async call<MethodName extends Definitions['name'] | rpc.All['name']>(
+  public async call<MethodName extends DefinitionsWithRPCDefinitions['name']>(
     method : MethodName,
-    ...params : ExtractParams<Definitions, MethodName>
-  ) : Promise<ExtractResult<Definitions, MethodName>> {
+    ...params : ExtractParams<DefinitionsWithRPCDefinitions, MethodName>
+  ) : Promise<ExtractResult<DefinitionsWithRPCDefinitions, MethodName>> {
     await this.ready;
 
     const id = ++this.requestId;
@@ -262,9 +267,12 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * });
    * ```
    */
-  public addNotificationListener<MethodName extends Extract<Definitions, NotificationObjectDefinition<string>>['name']>(
+  public addNotificationListener<MethodName extends Extract<
+    DefinitionsWithRPCDefinitions,
+    NotificationObjectDefinition<string>
+  >['name']>(
     method : MethodName,
-    listener : (...params : ExtractParams<Definitions, MethodName>) => void
+    listener : (...params : ExtractParams<DefinitionsWithRPCDefinitions, MethodName>) => void
   ) : void {
     const listenersForMethod = this.notificationListeners.get(method);
 
@@ -303,9 +311,12 @@ export class Client<Definitions extends Definition = minecraft.All> {
    * client.removeNotificationListener('minecraft:notification/players/joined', onPlayerJoined);
    * ```
    */
-  public removeNotificationListener<MethodName extends Extract<Definitions, NotificationObjectDefinition<string>>['name']>(
+  public removeNotificationListener<MethodName extends Extract<
+    DefinitionsWithRPCDefinitions,
+    NotificationObjectDefinition<string>
+  >['name']>(
     method : MethodName,
-    listener : (...params : ExtractParams<Definitions, MethodName>) => void
+    listener : (...params : ExtractParams<DefinitionsWithRPCDefinitions, MethodName>) => void
   ) : void {
     this.notificationListeners.get(method)?.delete(listener);
   }

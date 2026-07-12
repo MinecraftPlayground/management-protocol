@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsSpawnProtectionRadiusSet = MethodObjectDefinition<
   'minecraft:serversettings/spawn_protection_radius/set',
-  /** radius */
-  [number],
+  [radius: number],
   /** radius */
   number
 >

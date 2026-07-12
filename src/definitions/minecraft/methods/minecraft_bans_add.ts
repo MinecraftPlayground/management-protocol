@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftBansAdd = MethodObjectDefinition<
   'minecraft:bans/add',
-  [UserBanObject[]],
+  [add: UserBanObject[]],
   /** banlist */
   UserBanObject[]
 >

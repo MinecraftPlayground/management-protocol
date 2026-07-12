@@ -7,5 +7,5 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftNotificationPlayersJoined = NotificationObjectDefinition<
   'minecraft:notification/players/joined',
-  [PlayerObject]
+  [player: PlayerObject]
 >

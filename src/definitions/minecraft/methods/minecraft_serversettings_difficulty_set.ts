@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsDifficultySet = MethodObjectDefinition<
   'minecraft:serversettings/difficulty/set',
-  [Difficulty],
+  [difficulty: Difficulty],
   /** difficulty */
   Difficulty
 >

@@ -7,7 +7,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftAllowlistAdd = MethodObjectDefinition<
   'minecraft:allowlist/add',
-  [PlayerObject[]],
+  [add: PlayerObject[]],
   /** allowlist */
   PlayerObject[]
 >

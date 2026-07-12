@@ -6,8 +6,7 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
  */
 export type MinecraftServersettingsEnforceAllowlistSet = MethodObjectDefinition<
   'minecraft:serversettings/enforce_allowlist/set',
-  /** enforce */
-  [boolean],
-  /** enforce */
+  [enforce: boolean],
+  /** enforced */
   boolean
 >
