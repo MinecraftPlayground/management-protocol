@@ -8,32 +8,35 @@
  * - {@link MethodObjectDefinition} for request/response methods
  * - {@link NotificationObjectDefinition} for server-initiated notifications
  * 
- * @template Name Method or notification name (ex. `'minecraft:players'`)
- * @template Params Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `[]`)
- * @template Result Result type (ex. `{ players?: PlayerObject[] }`)
+ * @template DefinitionParameters Definition parameters
  * 
  * @see {@link MethodObjectDefinition} for method definitions
  * @see {@link NotificationObjectDefinition} for notification definitions
  */
-export interface Definition<
-  Name extends string = string,
-  Params extends unknown[] = unknown[],
-  Result = unknown
-> {
+export interface Definition<DefinitionParameters extends {
+  /** Method or notification name (ex. `'minecraft:players'`). */
+  name? : string
+
+  /** Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `[]`). */
+  params? : unknown[]
+  
+  /** Result type (ex. `{ players?: PlayerObject[] }`). */
+  result? : unknown
+} = Record<PropertyKey, never>> {
   /**
    * The method or notification name.
    * 
    * Should follow the pattern 'namespace:resource/action' for methods
    * or 'namespace:notification/resource/event' for notifications.
    */
-  name : Name,
+  name : DefinitionParameters['name'] extends undefined ? string : DefinitionParameters['name'],
   
   /**
    * Tuple of parameters for this method or notification.
    * 
    * Use `[]` for methods/notifications without parameters.
    */
-  params : Params,
+  params : DefinitionParameters['params'] extends undefined ? unknown[] : DefinitionParameters['params'],
   
   /**
    * The result type for this method or notification.
@@ -41,5 +44,5 @@ export interface Definition<
    * For methods, this is the response payload.
    * For notifications, this can be unknown as notifications don't have responses.
    */
-  result : Result
+  result : DefinitionParameters['result'] extends undefined ? unknown : DefinitionParameters['result']
 }

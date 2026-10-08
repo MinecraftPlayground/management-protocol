@@ -4,9 +4,10 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Discover the RPC schema.
  */
-export type RPCDiscover = MethodObjectDefinition<
-  'rpc.discover',
-  [],
+export type RPCDiscover = MethodObjectDefinition<{
+
+  name : 'rpc.discover',
+  params : [],
   /** rpc schema */
-  unknown[]
->
+  result : unknown[]
+}>

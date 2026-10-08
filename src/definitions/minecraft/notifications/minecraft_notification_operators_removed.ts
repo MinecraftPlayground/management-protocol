@@ -5,7 +5,7 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
 /**
  * Player was deoped
  */
-export type MinecraftNotificationOperatorsRemoved = NotificationObjectDefinition<
-  'minecraft:notification/operators/removed',
-  [player: OperatorObject]
->
+export type MinecraftNotificationOperatorsRemoved = NotificationObjectDefinition<{
+  name : 'minecraft:notification/operators/removed',
+  params : [player: OperatorObject]
+}>

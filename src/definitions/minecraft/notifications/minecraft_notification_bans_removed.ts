@@ -5,7 +5,7 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
 /**
  * Player was removed from ban list
  */
-export type MinecraftNotificationBansRemoved = NotificationObjectDefinition<
-  'minecraft:notification/bans/removed',
-  [player: PlayerObject]
->
+export type MinecraftNotificationBansRemoved = NotificationObjectDefinition<{
+  name : 'minecraft:notification/bans/removed',
+  params : [player: PlayerObject]
+}>

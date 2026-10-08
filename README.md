@@ -4,6 +4,7 @@ A TypeScript JSON-RPC 2.0 WebSocket client for Minecraft server management.
 
 [![Run Linter](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/lint.yml/badge.svg)](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/lint.yml)
 [![Run Unit Tests](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/unit_test.yml/badge.svg)](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/unit_test.yml)
+[![JSR](https://jsr.io/badges/@minecraft-server/management-protocol)](https://jsr.io/@minecraft-server/management-protocol)
 
 ---
 

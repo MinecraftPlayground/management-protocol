@@ -36,11 +36,16 @@ import type { Definition } from './definition.ts';
  * >;
  * ```
  */
-export interface MethodObjectDefinition<
-  Name extends string,
-  Params extends unknown[] = unknown[],
-  Result = unknown
-> extends Definition<Name, Params, Result> {
+export interface MethodObjectDefinition<MethodObjectDefinitionParameters extends {
+  /** Method  name (ex. `'minecraft:players'`). */
+  name : string
+
+  /** Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `[]`). */
+  params : unknown[]
+  
+  /** Result type (ex. `{ players?: PlayerObject[] }`). */
+  result : unknown
+}> extends Definition<MethodObjectDefinitionParameters> {
   /**
    * Type discriminator to distinguish methods from notifications.
    * 
