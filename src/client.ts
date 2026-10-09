@@ -1,4 +1,4 @@
-import type { Definition, ExtractParams, ExtractResult, NotificationObjectDefinition } from './schema/index.ts';
+import type { ExtractParams, ExtractResult, NotificationObjectDefinition } from './schema/index.ts';
 import type { minecraft, rpc } from './definitions/index.ts';
 import type { PendingRequest } from './communication/pending_request.ts';
 import type { ResponseObject } from './communication/response_object.ts';
@@ -8,6 +8,7 @@ import { parseMessageEventData } from './communication/parse_message_event_data.
 import type { RequestObject } from './communication/request_object.ts';
 import type { ClientOptions } from './client_options.ts';
 import type { ConnectionAddress } from './connection_address.ts';
+import type { MethodOrNotificationObjectDefinition } from './schema/method_or_notification_object_definition.ts';
 
 
 /**
@@ -39,8 +40,8 @@ import type { ConnectionAddress } from './connection_address.ts';
  * ```
  */
 export class Client<
-  Definitions extends Definition = minecraft.All,
-  DefinitionsWithRPCDefinitions extends Definition = Definitions | rpc.All
+  Definitions extends MethodOrNotificationObjectDefinition = minecraft.All,
+  DefinitionsWithRPCDefinitions extends MethodOrNotificationObjectDefinition = Definitions | rpc.All
 > {
   private readonly notificationListeners : Map<string, Set<(...params: unknown[]) => void>> = new Map();
   private readonly pendingRequests : Map<string | number | null, PendingRequest<unknown>> = new Map();
@@ -269,7 +270,7 @@ export class Client<
    */
   public addNotificationListener<MethodName extends Extract<
     DefinitionsWithRPCDefinitions,
-    NotificationObjectDefinition<string>
+    NotificationObjectDefinition
   >['name']>(
     method : MethodName,
     listener : (...params : ExtractParams<DefinitionsWithRPCDefinitions, MethodName>) => void
@@ -313,7 +314,7 @@ export class Client<
    */
   public removeNotificationListener<MethodName extends Extract<
     DefinitionsWithRPCDefinitions,
-    NotificationObjectDefinition<string>
+    NotificationObjectDefinition
   >['name']>(
     method : MethodName,
     listener : (...params : ExtractParams<DefinitionsWithRPCDefinitions, MethodName>) => void

@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Get the ban list.
  */
-export type MinecraftBans = MethodObjectDefinition<
-  'minecraft:bans',
-  [],
-  /** banlist */
-  UserBanObject[]
->
+export type MinecraftBans = MethodObjectDefinition<{
+  name : 'minecraft:bans',
+  params : [],
+  result : UserBanObject[]
+}>

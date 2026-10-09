@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Get the allowlist.
  */
-export type MinecraftAllowlist = MethodObjectDefinition<
-  'minecraft:allowlist',
-  [],
-  /** allowlist */
-  PlayerObject[]
->
+export type MinecraftAllowlist = MethodObjectDefinition<{
+  name : 'minecraft:allowlist',
+  params : [],
+  result : PlayerObject[]
+}>

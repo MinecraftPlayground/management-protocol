@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Send a system message.
  */
-export type MinecraftServerSystemMessage = MethodObjectDefinition<
-  'minecraft:server/system_message',
-  [message: SystemMessageObject],
-  /** sent */
-  boolean
->
+export type MinecraftServerSystemMessage = MethodObjectDefinition<{
+  name : 'minecraft:server/system_message',
+  params : [message: SystemMessageObject],
+  result : boolean
+}>

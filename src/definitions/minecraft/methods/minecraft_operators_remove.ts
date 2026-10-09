@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Deop players.
  */
-export type MinecraftOperatorsRemove = MethodObjectDefinition<
-  'minecraft:operators/remove',
-  [remove: PlayerObject[]],
-  /** operators */
-  OperatorObject[]
->
+export type MinecraftOperatorsRemove = MethodObjectDefinition<{
+  name : 'minecraft:operators/remove',
+  params : [remove: PlayerObject[]],
+  result : OperatorObject[]
+}>

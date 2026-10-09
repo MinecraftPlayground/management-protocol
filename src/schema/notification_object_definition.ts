@@ -1,5 +1,3 @@
-import type { Definition } from './definition.ts';
-
 /**
  * Definition interface for JSON-RPC notifications (server-initiated events).
  * 
@@ -15,10 +13,9 @@ import type { Definition } from './definition.ts';
  * 
  * 
  * // Notification without parameters
- * type ServerStartedNotification = NotificationObjectDefinition<
- *   'minecraft:notification/server/started',
- *   []
- * >;
+ * type ServerStartedNotification = NotificationObjectDefinition<{
+ *   name : 'minecraft:notification/server/started'
+ * }>;
  * ```
  * @example
  * ```ts
@@ -26,10 +23,10 @@ import type { Definition } from './definition.ts';
  * 
  * 
  * // Notification with parameters
- * type PlayerJoinedNotification = NotificationObjectDefinition<
- *   'minecraft:notification/players/joined',
- *   [{ player: PlayerObject }]
- * >;
+ * type PlayerJoinedNotification = NotificationObjectDefinition<{
+ *   name : 'minecraft:notification/players/joined',
+ *   params : [{ player : PlayerObject }]
+ * }>;
  * ```
  */
 export interface NotificationObjectDefinition<NotificationObjectDefinitionParameters extends {
@@ -37,8 +34,17 @@ export interface NotificationObjectDefinition<NotificationObjectDefinitionParame
   name : string
 
   /** Tuple type of parameters (ex. `[{ player: PlayerObject }]` or `[]`). */
+  params? : unknown[]
+} = {
+  name : string,
   params : unknown[]
-}> extends Definition<NotificationObjectDefinitionParameters> {
+}> /* extends Definition<NotificationObjectDefinitionParameters> */ {
+
+  name : NotificationObjectDefinitionParameters['name']
+
+  params : NotificationObjectDefinitionParameters['params'] extends undefined
+    ? []
+    : NotificationObjectDefinitionParameters['params']
   /**
    * Type discriminator to distinguish notifications from methods.
    * 

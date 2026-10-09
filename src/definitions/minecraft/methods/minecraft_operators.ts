@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Get all oped players.
  */
-export type MinecraftOperators = MethodObjectDefinition<
-  'minecraft:operators',
-  [],
-  /** operators */
-  OperatorObject[]
->
+export type MinecraftOperators = MethodObjectDefinition<{
+  name : 'minecraft:operators',
+  params : [],
+  result : OperatorObject[]
+}>

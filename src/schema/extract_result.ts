@@ -1,4 +1,4 @@
-import type { Definition } from './definition.ts';
+import type { MethodObjectDefinition } from './method_object_definition.ts';
 
 
 /**
@@ -17,16 +17,16 @@ import type { Definition } from './definition.ts';
  * 
  * // Extract result for a method
  * type GetAllowlistResult = ExtractResult<minecraft.All, 'minecraft:allowlist'>;
- * // { allowlist?: PlayerObject[] }
+ * // { allowlist? : PlayerObject[] }
  * 
  * type GetPlayersResult = ExtractResult<minecraft.All, 'minecraft:players'>;
- * // { players?: PlayerObject[] }
+ * // { players? : PlayerObject[] }
  * 
  * type SetDifficultyResult = ExtractResult<
  *   minecraft.All,
  *   'minecraft:serversettings/difficulty/set'
  * >;
- * // { difficulty?: Difficulty }
+ * // { difficulty? : Difficulty }
  * ```
  * @example
  * ```ts
@@ -43,10 +43,10 @@ import type { Definition } from './definition.ts';
  * }
  * 
  * await callMethod('minecraft:players');
- * // { players?: PlayerObject[] }
+ * // { players? : PlayerObject[] }
  * ```
  */
 export type ExtractResult<
-  Definitions extends Definition,
+  Definitions extends MethodObjectDefinition,
   Name extends string
-> = Extract<Definitions, { name: Name }>['result'];
+> = Extract<Definitions, { name : Name }>['result'];

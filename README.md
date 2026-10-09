@@ -73,14 +73,14 @@ import type { MethodObjectDefinition } from '@minecraft-server/management-protoc
 import type { minecraft } from '@minecraft-server/management-protocol/definitions';
 
 
-type CustomGreetMethod = MethodObjectDefinition<
-  'custom:player/greet',
-  [
+type CustomGreetMethod = MethodObjectDefinition<{
+  name : 'custom:player/greet',
+  params: [
     { player : minecraft.schemas.PlayerObject },
     { message : string }
   ],
-  minecraft.schemas.PlayerObject
->;
+  result: minecraft.schemas.PlayerObject
+}>;
 
 const client = new Client<minecraft.Extend<CustomGreetMethod>>(
   'ws://localhost:25576',
@@ -102,10 +102,10 @@ import type { NotificationObjectDefinition } from '@minecraft-server/management-
 import type { minecraft } from '@minecraft-server/management-protocol/definitions';
 
 
-type CustomGreetedNotification = NotificationObjectDefinition<
-  'custom:notification/player/greeted',
-  [{ player: minecraft.schemas.PlayerObject }]
->;
+type CustomGreetedNotification = NotificationObjectDefinition<{
+  name : 'custom:notification/player/greeted',
+  params : [{ player: minecraft.schemas.PlayerObject }]
+}>;
 
 const client = new Client<minecraft.Extend<CustomGreetedNotification>>(
   'ws://localhost:25576',
@@ -138,12 +138,12 @@ client.addNotificationListener(
 ### Schema Utilities
 Available from `@minecraft-server/management-protocol/schema`:
 
-| Type                                           | Description                                     |
-|:-----------------------------------------------|:------------------------------------------------|
-| `MethodObjectDefinition<Name, Params, Result>` | Define a custom method                          |
-| `NotificationObjectDefinition<Name, Params>`   | Define a custom notification                    |
-| `ExtractParams<Definitions, Name>`             | Extract param types for a given method name     |
-| `ExtractResult<Definitions, Name>`             | Extract the result type for a given method name |
+| Type                                                                                         | Description                                     |
+|:---------------------------------------------------------------------------------------------|:------------------------------------------------|
+| [`MethodObjectDefinition<Definition>`](./src/schema/method_object_definition.ts)             | Define a custom method.                         |
+| [`NotificationObjectDefinition<Definition>`](./src/schema/notification_object_definition.ts) | Define a custom notification.                   |
+| [`ExtractParams<Definitions, Name>`](./src/schema/extract_params.ts)                         | Extract param types for a given method name     |
+| [`ExtractResult<Definitions, Name>`](./src/schema/extract_result.ts)                         | Extract the result type for a given method name |
 
 ---
 
