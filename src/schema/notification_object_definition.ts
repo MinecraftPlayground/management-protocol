@@ -34,7 +34,7 @@ export interface NotificationObjectDefinition<NotificationObjectDefinitionParame
   /** Notification name (ex. `'minecraft:notification/players/joined'`). */
   name : string
 
-  /** Tuple type of parameters (ex. `[{ player: PlayerObject }]` or `[]`). */
+  /** Tuple type of parameters (ex. `[player : PlayerObject]` or `[]`). */
   params? : unknown[]
 } = {
   name : string,

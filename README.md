@@ -51,7 +51,9 @@ await client.call('minecraft:serversettings/difficulty/set', 'hard');
 
 ### Listening for Notifications
 ```ts
-client.addNotificationListener('minecraft:notification/server/status', ({ status }) => {
+import type { minecraft } from '@minecraft-server/management-protocol/definitions';
+
+client.addNotificationListener('minecraft:notification/server/status', (status) => {
   console.log(`Players online: ${status.player?.length ?? 0}`);
 });
 

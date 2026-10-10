@@ -37,10 +37,10 @@ export interface MethodObjectDefinition<MethodObjectDefinitionParameters extends
   /** Method  name (ex. `'minecraft:players'`). */
   name : string
 
-  /** Tuple type of parameters (ex. `[{ add: PlayerObject[] }]`). */
+  /** Tuple type of parameters (ex. `[ add : PlayerObject[] ]`). */
   params? : unknown[]
   
-  /** Result type (ex. `{ players?: PlayerObject[] }`). */
+  /** Result type (ex. `PlayerObject[]`). */
   result : unknown
 } = {
   name : string,
