@@ -72,6 +72,5 @@
     "lineWidth": 120,
     "typeLiteral.separatorKind": "comma",
     "useBraces": "always"
-  },
-  "imports": { }
+  }
 }
