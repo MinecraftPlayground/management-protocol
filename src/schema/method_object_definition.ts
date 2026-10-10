@@ -16,7 +16,7 @@
  * // Method without parameters
  * type GetPlayersMethod = MethodObjectDefinition<{
  *   name : 'minecraft:players',
- *   result : { players?: minecraft.schemas.PlayerObject[] }
+ *   result : minecraft.schemas.PlayerObject[]
  * }>;
  * ```
  * @example
@@ -28,8 +28,8 @@
  * // Method with parameters
  * type SetDifficultyMethod = MethodObjectDefinition<{
  *   name : 'minecraft:serversettings/difficulty/set',
- *   params : [{ difficulty : minecraft.schemas.Difficulty }],
- *   result : { difficulty? : minecraft.schemas.Difficulty }
+ *   params : [difficulty : minecraft.schemas.Difficulty],
+ *   result : minecraft.schemas.Difficulty
  * }>;
  * ```
  */

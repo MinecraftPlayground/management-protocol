@@ -56,7 +56,7 @@ client.addNotificationListener('minecraft:notification/server/status', ({ status
 });
 
 // Remove a listener
-const onJoin = ({ player }) => console.log(`${player.name} joined`);
+const onJoin = (player: minecraft.schemas.PlayerObject) => console.log(`${player.name} joined`);
 client.addNotificationListener('minecraft:notification/players/joined', onJoin);
 client.removeNotificationListener('minecraft:notification/players/joined', onJoin);
 ```

@@ -213,10 +213,10 @@ export class Client<
    * }]);
    * ```
    */
-  public async call<MethodName extends Extract<Definitions, MethodObjectDefinition>['name']>(
+  public async call<MethodName extends Extract<DefinitionsWithRPCDefinitions, MethodObjectDefinition>['name']>(
      method : MethodName,
-     ...params : ExtractParams<Extract<Definitions, MethodObjectDefinition>, MethodName>
-   ) : Promise<ExtractResult<Extract<Definitions, MethodObjectDefinition>, MethodName>> {
+     ...params : ExtractParams<Extract<DefinitionsWithRPCDefinitions, MethodObjectDefinition>, MethodName>
+   ) : Promise<ExtractResult<Extract<DefinitionsWithRPCDefinitions, MethodObjectDefinition>, MethodName>> {
     await this.ready;
 
     const id = ++this.requestId;

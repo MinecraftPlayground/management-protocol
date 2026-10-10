@@ -18,7 +18,7 @@ import type { MethodOrNotificationObjectDefinition } from './method_or_notificat
  * 
  * // Extract params for a method with parameters
  * type AddToAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist/add'>;
- * // [{ add: PlayerObject[] }]
+ * // [add : PlayerObject[]]
  * 
  * // Extract params for a method without parameters
  * type GetAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist'>;
@@ -29,7 +29,7 @@ import type { MethodOrNotificationObjectDefinition } from './method_or_notificat
  *   minecraft.All,
  *   'minecraft:notification/players/joined'
  * >;
- * // [{ player: PlayerObject }]
+ * // [player : PlayerObject]
  * ```
  * @example
  * ```ts

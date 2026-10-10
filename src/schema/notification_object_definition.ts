@@ -26,7 +26,7 @@
  * // Notification with parameters
  * type PlayerJoinedNotification = NotificationObjectDefinition<{
  *   name : 'minecraft:notification/players/joined',
- *   params : [{ player : minecraft.schemas.PlayerObject }]
+ *   params : [player : minecraft.schemas.PlayerObject]
  * }>;
  * ```
  */
