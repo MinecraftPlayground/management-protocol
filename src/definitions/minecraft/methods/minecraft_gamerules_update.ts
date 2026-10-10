@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Update game rule value.
  */
-export type MinecraftGamerulesUpdate = MethodObjectDefinition<
-  'minecraft:gamerules/update',
-  [gamerule: UntypedGameRuleObject],
-  /** gamerule */
-  TypedGameRuleObject
->
+export type MinecraftGamerulesUpdate = MethodObjectDefinition<{
+  name : 'minecraft:gamerules/update',
+  params : [gamerule: UntypedGameRuleObject],
+  result : TypedGameRuleObject
+}>

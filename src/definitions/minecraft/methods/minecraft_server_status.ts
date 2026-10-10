@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Get server status.
  */
-export type MinecraftServerStatus = MethodObjectDefinition<
-  'minecraft:server/status',
-  [],
-  /** status */
-  ServerStateObject
->
+export type MinecraftServerStatus = MethodObjectDefinition<{
+  name : 'minecraft:server/status',
+  params : [],
+  result : ServerStateObject
+}>

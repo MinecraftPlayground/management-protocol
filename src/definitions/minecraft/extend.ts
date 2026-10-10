@@ -1,4 +1,4 @@
-import type { Definition } from '../../schema/index.ts';
+import type { MethodOrNotificationObjectDefinition } from '../../schema/index.ts';
 import type { All as AllNotifications } from './notifications.ts';
 import type { All as AllMethods } from './methods.ts';
 
@@ -8,7 +8,7 @@ import type { All as AllMethods } from './methods.ts';
  * 
  * @template CustomDefinition Definition to extend the default Minecraft definitions with
  */
-export type Extend<CustomDefinition extends Definition> = 
+export type Extend<CustomDefinition extends MethodOrNotificationObjectDefinition> = 
   | AllNotifications
   | AllMethods
   | CustomDefinition

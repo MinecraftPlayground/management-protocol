@@ -4,6 +4,7 @@ A TypeScript JSON-RPC 2.0 WebSocket client for Minecraft server management.
 
 [![Run Linter](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/lint.yml/badge.svg)](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/lint.yml)
 [![Run Unit Tests](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/unit_test.yml/badge.svg)](https://github.com/MinecraftPlayground/management-protocol/actions/workflows/unit_test.yml)
+[![JSR](https://jsr.io/badges/@minecraft-server/management-protocol)](https://jsr.io/@minecraft-server/management-protocol)
 
 ---
 
@@ -50,12 +51,14 @@ await client.call('minecraft:serversettings/difficulty/set', 'hard');
 
 ### Listening for Notifications
 ```ts
-client.addNotificationListener('minecraft:notification/server/status', ({ status }) => {
+import type { minecraft } from '@minecraft-server/management-protocol/definitions';
+
+client.addNotificationListener('minecraft:notification/server/status', (status) => {
   console.log(`Players online: ${status.player?.length ?? 0}`);
 });
 
 // Remove a listener
-const onJoin = ({ player }) => console.log(`${player.name} joined`);
+const onJoin = (player: minecraft.schemas.PlayerObject) => console.log(`${player.name} joined`);
 client.addNotificationListener('minecraft:notification/players/joined', onJoin);
 client.removeNotificationListener('minecraft:notification/players/joined', onJoin);
 ```
@@ -72,14 +75,14 @@ import type { MethodObjectDefinition } from '@minecraft-server/management-protoc
 import type { minecraft } from '@minecraft-server/management-protocol/definitions';
 
 
-type CustomGreetMethod = MethodObjectDefinition<
-  'custom:player/greet',
-  [
+type CustomGreetMethod = MethodObjectDefinition<{
+  name : 'custom:player/greet',
+  params : [
     { player : minecraft.schemas.PlayerObject },
     { message : string }
   ],
-  minecraft.schemas.PlayerObject
->;
+  result : minecraft.schemas.PlayerObject
+}>;
 
 const client = new Client<minecraft.Extend<CustomGreetMethod>>(
   'ws://localhost:25576',
@@ -101,10 +104,10 @@ import type { NotificationObjectDefinition } from '@minecraft-server/management-
 import type { minecraft } from '@minecraft-server/management-protocol/definitions';
 
 
-type CustomGreetedNotification = NotificationObjectDefinition<
-  'custom:notification/player/greeted',
-  [{ player: minecraft.schemas.PlayerObject }]
->;
+type CustomGreetedNotification = NotificationObjectDefinition<{
+  name : 'custom:notification/player/greeted',
+  params : [{ player: minecraft.schemas.PlayerObject }]
+}>;
 
 const client = new Client<minecraft.Extend<CustomGreetedNotification>>(
   'ws://localhost:25576',
@@ -127,22 +130,22 @@ client.addNotificationListener(
 | `options.token` | `string` (optional) | Bearer token for authentication     |
 
 #### Methods
-| Method                                         | Description                                                 |
-|:-----------------------------------------------|:------------------------------------------------------------|
-| `call(method, ...params)`                      | Call a JSON-RPC method, returns a `Promise` with the result |
-| `addNotificationListener(method, listener)`    | Register a notification listener                            |
-| `removeNotificationListener(method, listener)` | Remove a notification listener                              |
-| `close(code?, reason?)`                        | Close the WebSocket connection                              |
+| Method                                                            | Description                                                 |
+|:------------------------------------------------------------------|:------------------------------------------------------------|
+| [`call(method, ...params)`](./src/client.ts)                      | Call a JSON-RPC method, returns a `Promise` with the result |
+| [`addNotificationListener(method, listener)`](./src/client.ts)    | Register a notification listener                            |
+| [`removeNotificationListener(method, listener)`](./src/client.ts) | Remove a notification listener                              |
+| [`close(code?, reason?)`](/src/client.ts)                         | Close the WebSocket connection                              |
 
 ### Schema Utilities
 Available from `@minecraft-server/management-protocol/schema`:
 
-| Type                                           | Description                                     |
-|:-----------------------------------------------|:------------------------------------------------|
-| `MethodObjectDefinition<Name, Params, Result>` | Define a custom method                          |
-| `NotificationObjectDefinition<Name, Params>`   | Define a custom notification                    |
-| `ExtractParams<Definitions, Name>`             | Extract param types for a given method name     |
-| `ExtractResult<Definitions, Name>`             | Extract the result type for a given method name |
+| Type                                                                                         | Description                                     |
+|:---------------------------------------------------------------------------------------------|:------------------------------------------------|
+| [`MethodObjectDefinition<Definition>`](./src/schema/method_object_definition.ts)             | Define a custom method.                         |
+| [`NotificationObjectDefinition<Definition>`](./src/schema/notification_object_definition.ts) | Define a custom notification.                   |
+| [`ExtractParams<Definitions, Name>`](./src/schema/extract_params.ts)                         | Extract param types for a given method name     |
+| [`ExtractResult<Definitions, Name>`](./src/schema/extract_result.ts)                         | Extract the result type for a given method name |
 
 ---
 

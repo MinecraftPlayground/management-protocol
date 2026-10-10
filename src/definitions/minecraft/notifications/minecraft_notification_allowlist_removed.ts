@@ -5,7 +5,7 @@ import type { NotificationObjectDefinition } from '../../../schema/index.ts';
 /**
  * Player was removed from allowlist
  */
-export type MinecraftNotificationAllowlistRemoved = NotificationObjectDefinition<
-  'minecraft:notification/allowlist/removed',
-  [player: PlayerObject]
->
+export type MinecraftNotificationAllowlistRemoved = NotificationObjectDefinition<{
+  name : 'minecraft:notification/allowlist/removed',
+  params : [player: PlayerObject]
+}>

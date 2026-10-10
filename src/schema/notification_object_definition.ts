@@ -1,5 +1,3 @@
-import type { Definition } from './definition.ts';
-
 /**
  * Definition interface for JSON-RPC notifications (server-initiated events).
  * 
@@ -7,9 +5,7 @@ import type { Definition } from './definition.ts';
  * Notifications are server-initiated messages that don't expect a response from the client.
  * They follow a fire-and-forget pattern for event broadcasting.
  * 
- * @template Name Notification name (ex. `'minecraft:notification/players/joined'`)
- * @template Params Tuple type of parameters (ex. `[{ player: PlayerObject }]` or `[]`)
- * @template Result Usually unknown for notifications as they don't have responses
+ * @template NotificationObjectDefinitionParameters Notification parameters
  * 
  * @example
  * ```ts
@@ -17,27 +13,39 @@ import type { Definition } from './definition.ts';
  * 
  * 
  * // Notification without parameters
- * type ServerStartedNotification = NotificationObjectDefinition<
- *   'minecraft:notification/server/started',
- *   []
- * >;
+ * type ServerStartedNotification = NotificationObjectDefinition<{
+ *   name : 'minecraft:notification/server/started'
+ * }>;
  * ```
  * @example
  * ```ts
  * import type { NotificationObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * 
  * // Notification with parameters
- * type PlayerJoinedNotification = NotificationObjectDefinition<
- *   'minecraft:notification/players/joined',
- *   [{ player: PlayerObject }]
- * >;
+ * type PlayerJoinedNotification = NotificationObjectDefinition<{
+ *   name : 'minecraft:notification/players/joined',
+ *   params : [player : minecraft.schemas.PlayerObject]
+ * }>;
  * ```
  */
-export interface NotificationObjectDefinition<
-  Name extends string,
-  Params extends unknown[] = unknown[],
-> extends Definition<Name, Params, never> {
+export interface NotificationObjectDefinition<NotificationObjectDefinitionParameters extends {
+  /** Notification name (ex. `'minecraft:notification/players/joined'`). */
+  name : string
+
+  /** Tuple type of parameters (ex. `[player : PlayerObject]` or `[]`). */
+  params? : unknown[]
+} = {
+  name : string,
+  params : unknown[]
+}> {
+
+  name : NotificationObjectDefinitionParameters['name']
+
+  params : NotificationObjectDefinitionParameters['params'] extends undefined
+    ? []
+    : NotificationObjectDefinitionParameters['params']
   /**
    * Type discriminator to distinguish notifications from methods.
    * 

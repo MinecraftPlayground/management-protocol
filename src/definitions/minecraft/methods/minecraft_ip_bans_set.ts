@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Set the ip banlist.
  */
-export type MinecraftIpBansSet = MethodObjectDefinition<
-  'minecraft:ip_bans/set',
-  [banlist: IpBanObject[]],
-  /** banlist */
-  IpBanObject[]
->
+export type MinecraftIpBansSet = MethodObjectDefinition<{
+  name : 'minecraft:ip_bans/set',
+  params : [banlist: IpBanObject[]],
+  result : IpBanObject[]
+}>

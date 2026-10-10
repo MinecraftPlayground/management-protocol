@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Clear all players in ban list.
  */
-export type MinecraftBansClear = MethodObjectDefinition<
-  'minecraft:bans/clear',
-  [],
-  /** banlist */
-  UserBanObject[]
->
+export type MinecraftBansClear = MethodObjectDefinition<{
+  name : 'minecraft:bans/clear',
+  params : [],
+  result : UserBanObject[]
+}>

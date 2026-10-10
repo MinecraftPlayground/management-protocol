@@ -5,9 +5,8 @@ import type { MethodObjectDefinition } from '../../../schema/index.ts';
 /**
  * Get the current difficulty level of the server.
  */
-export type MinecraftServersettingsDifficulty = MethodObjectDefinition<
-  'minecraft:serversettings/difficulty',
-  [],
-  /** difficulty */
-  Difficulty
->
+export type MinecraftServersettingsDifficulty = MethodObjectDefinition<{
+  name : 'minecraft:serversettings/difficulty',
+  params : [],
+  result : Difficulty
+}>

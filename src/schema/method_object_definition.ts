@@ -1,5 +1,3 @@
-import type { Definition } from './definition.ts';
-
 /**
  * Definition interface for JSON-RPC methods (request/response pattern).
  * 
@@ -7,40 +5,54 @@ import type { Definition } from './definition.ts';
  * Methods follow the request/response pattern where a client sends a request
  * and expects a response from the server.
  * 
- * @template Name Method  name (ex. `'minecraft:players'`)
- * @template Params Tuple type of parameters (ex. `[{ add: PlayerObject[] }]` or `[]`)
- * @template Result Result type (ex. `{ players?: PlayerObject[] }`)
+ * @template MethodObjectDefinitionParameters Method parameters
  * 
  * @example
  * ```ts
  * import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * 
  * // Method without parameters
- * type GetPlayersMethod = MethodObjectDefinition<
- *   'minecraft:players',
- *   [],
- *   { players?: PlayerObject[] }
- * >;
+ * type GetPlayersMethod = MethodObjectDefinition<{
+ *   name : 'minecraft:players',
+ *   result : minecraft.schemas.PlayerObject[]
+ * }>;
  * ```
  * @example
  * ```ts
  * import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * 
  * // Method with parameters
- * type SetDifficultyMethod = MethodObjectDefinition<
- *   'minecraft:serversettings/difficulty/set',
- *   [{ difficulty: Difficulty }],
- *   { difficulty?: Difficulty }
- * >;
+ * type SetDifficultyMethod = MethodObjectDefinition<{
+ *   name : 'minecraft:serversettings/difficulty/set',
+ *   params : [difficulty : minecraft.schemas.Difficulty],
+ *   result : minecraft.schemas.Difficulty
+ * }>;
  * ```
  */
-export interface MethodObjectDefinition<
-  Name extends string,
-  Params extends unknown[] = unknown[],
-  Result = unknown
-> extends Definition<Name, Params, Result> {
+export interface MethodObjectDefinition<MethodObjectDefinitionParameters extends {
+  /** Method  name (ex. `'minecraft:players'`). */
+  name : string
+
+  /** Tuple type of parameters (ex. `[ add : PlayerObject[] ]`). */
+  params? : unknown[]
+  
+  /** Result type (ex. `PlayerObject[]`). */
+  result : unknown
+} = {
+  name : string,
+  params : unknown[]
+  result : unknown
+}> {
+  name : MethodObjectDefinitionParameters['name']
+
+  params : MethodObjectDefinitionParameters['params'] extends undefined
+    ? []
+    : MethodObjectDefinitionParameters['params']
+  result : MethodObjectDefinitionParameters['result']
   /**
    * Type discriminator to distinguish methods from notifications.
    * 

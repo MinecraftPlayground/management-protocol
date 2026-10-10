@@ -1,4 +1,4 @@
-import type { Definition } from './definition.ts';
+import type { MethodOrNotificationObjectDefinition } from './method_or_notification_object_definition.ts';
 
 
 /**
@@ -15,9 +15,10 @@ import type { Definition } from './definition.ts';
  * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * import type { ExtractParams } from '@minecraft-server/management-protocol/schema';
  * 
+ * 
  * // Extract params for a method with parameters
  * type AddToAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist/add'>;
- * // [{ add: PlayerObject[] }]
+ * // [add : PlayerObject[]]
  * 
  * // Extract params for a method without parameters
  * type GetAllowlistParams = ExtractParams<minecraft.All, 'minecraft:allowlist'>;
@@ -28,7 +29,7 @@ import type { Definition } from './definition.ts';
  *   minecraft.All,
  *   'minecraft:notification/players/joined'
  * >;
- * // [{ player: PlayerObject }]
+ * // [player : PlayerObject]
  * ```
  * @example
  * ```ts
@@ -46,6 +47,6 @@ import type { Definition } from './definition.ts';
  * ```
  */
 export type ExtractParams<
-  Definitions extends Definition,
+  Definitions extends MethodOrNotificationObjectDefinition,
   Name extends string
 > = Extract<Definitions, { name: Name }>['params'];

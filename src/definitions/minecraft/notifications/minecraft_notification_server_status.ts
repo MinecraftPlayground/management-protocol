@@ -5,7 +5,7 @@ import type { ServerStateObject } from '../schemas.ts';
 /**
  * Server status heartbeat
  */
-export type MinecraftNotificationServerStatus = NotificationObjectDefinition<
-  'minecraft:notification/server/status',
-  [status: ServerStateObject]
->
+export type MinecraftNotificationServerStatus = NotificationObjectDefinition<{
+  name : 'minecraft:notification/server/status',
+  params : [status: ServerStateObject]
+}>
