@@ -4,11 +4,11 @@ import type { MethodObjectDefinition } from './method_object_definition.ts';
 /**
  * Extract the result type from a method by its name.
  * 
- * This utility type searches through a union of Definition types and extracts
- * the result property of the matching method/notification.
+ * This utility type searches through a union of method definitions and extracts
+ * the result property of the matching method.
  * 
  * @template Definitions Union of all method objects to extract from
- * @template Name Name of the method/notification to extract the result type from
+ * @template Name Name of the method to extract the result type from
  * 
  * @example
  * ```ts
