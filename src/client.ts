@@ -1,4 +1,4 @@
-import type { ExtractParams, ExtractResult, NotificationObjectDefinition } from './schema/index.ts';
+import type { ExtractParams, ExtractResult, MethodObjectDefinition, NotificationObjectDefinition } from './schema/index.ts';
 import type { minecraft, rpc } from './definitions/index.ts';
 import type { PendingRequest } from './communication/pending_request.ts';
 import type { ResponseObject } from './communication/response_object.ts';
@@ -213,10 +213,10 @@ export class Client<
    * }]);
    * ```
    */
-  public async call<MethodName extends DefinitionsWithRPCDefinitions['name']>(
-    method : MethodName,
-    ...params : ExtractParams<DefinitionsWithRPCDefinitions, MethodName>
-  ) : Promise<ExtractResult<DefinitionsWithRPCDefinitions, MethodName>> {
+  public async call<MethodName extends Extract<Definitions, MethodObjectDefinition>['name']>(
+     method : MethodName,
+     ...params : ExtractParams<Extract<Definitions, MethodObjectDefinition>, MethodName>
+   ) : Promise<ExtractResult<Extract<Definitions, MethodObjectDefinition>, MethodName>> {
     await this.ready;
 
     const id = ++this.requestId;

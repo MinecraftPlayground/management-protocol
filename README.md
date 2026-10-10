@@ -128,12 +128,12 @@ client.addNotificationListener(
 | `options.token` | `string` (optional) | Bearer token for authentication     |
 
 #### Methods
-| Method                                         | Description                                                 |
-|:-----------------------------------------------|:------------------------------------------------------------|
-| `call(method, ...params)`                      | Call a JSON-RPC method, returns a `Promise` with the result |
-| `addNotificationListener(method, listener)`    | Register a notification listener                            |
-| `removeNotificationListener(method, listener)` | Remove a notification listener                              |
-| `close(code?, reason?)`                        | Close the WebSocket connection                              |
+| Method                                                            | Description                                                 |
+|:------------------------------------------------------------------|:------------------------------------------------------------|
+| [`call(method, ...params)`](./src/client.ts)                      | Call a JSON-RPC method, returns a `Promise` with the result |
+| [`addNotificationListener(method, listener)`](./src/client.ts)    | Register a notification listener                            |
+| [`removeNotificationListener(method, listener)`](./src/client.ts) | Remove a notification listener                              |
+| [`close(code?, reason?)`](/src/client.ts)                         | Close the WebSocket connection                              |
 
 ### Schema Utilities
 Available from `@minecraft-server/management-protocol/schema`:
