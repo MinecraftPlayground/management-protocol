@@ -10,24 +10,26 @@
  * @example
  * ```ts
  * import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * 
  * // Method without parameters
  * type GetPlayersMethod = MethodObjectDefinition<{
  *   name : 'minecraft:players',
- *   result : { players?: PlayerObject[] }
+ *   result : { players?: minecraft.schemas.PlayerObject[] }
  * }>;
  * ```
  * @example
  * ```ts
  * import type { MethodObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * 
  * // Method with parameters
  * type SetDifficultyMethod = MethodObjectDefinition<{
  *   name : 'minecraft:serversettings/difficulty/set',
- *   params : [{ difficulty : Difficulty }],
- *   result : { difficulty? : Difficulty }
+ *   params : [{ difficulty : minecraft.schemas.Difficulty }],
+ *   result : { difficulty? : minecraft.schemas.Difficulty }
  * }>;
  * ```
  */

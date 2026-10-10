@@ -301,7 +301,7 @@ export class Client<
    *   token: 'my-secret-token'
    * });
    *
-   * const onPlayerJoined = (player : minecraft.schema.PlayerObject) => {
+   * const onPlayerJoined = (player : minecraft.schemas.PlayerObject) => {
    *   console.log(`${player.name} joined`);
    * };
    * 

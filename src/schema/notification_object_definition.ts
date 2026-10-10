@@ -20,12 +20,13 @@
  * @example
  * ```ts
  * import type { NotificationObjectDefinition } from '@minecraft-server/management-protocol/schema';
+ * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * 
  * 
  * // Notification with parameters
  * type PlayerJoinedNotification = NotificationObjectDefinition<{
  *   name : 'minecraft:notification/players/joined',
- *   params : [{ player : PlayerObject }]
+ *   params : [{ player : minecraft.schemas.PlayerObject }]
  * }>;
  * ```
  */
@@ -38,7 +39,7 @@ export interface NotificationObjectDefinition<NotificationObjectDefinitionParame
 } = {
   name : string,
   params : unknown[]
-}> /* extends Definition<NotificationObjectDefinitionParameters> */ {
+}> {
 
   name : NotificationObjectDefinitionParameters['name']
 

@@ -13,37 +13,17 @@ import type { MethodObjectDefinition } from './method_object_definition.ts';
  * @example
  * ```ts
  * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
- * 
- * 
- * // Extract result for a method
- * type GetAllowlistResult = ExtractResult<minecraft.All, 'minecraft:allowlist'>;
- * // { allowlist? : PlayerObject[] }
- * 
- * type GetPlayersResult = ExtractResult<minecraft.All, 'minecraft:players'>;
- * // { players? : PlayerObject[] }
- * 
- * type SetDifficultyResult = ExtractResult<
- *   minecraft.All,
- *   'minecraft:serversettings/difficulty/set'
- * >;
- * // { difficulty? : Difficulty }
- * ```
- * @example
- * ```ts
- * import type { minecraft } from '@minecraft-server/management-protocol/definitions';
  * import type { ExtractResult } from '@minecraft-server/management-protocol/schema';
  * 
+ * // Reusable alias that resolves the result type by method name
+ * type ResultOf<Name extends minecraft.methods.All['name']> =
+ *   ExtractResult<minecraft.methods.All, Name>;
  * 
- * // Usage in Promise return type
- * async function callMethod<Name extends minecraft.All['name']>(
- *   method: Name
- * ): Promise<ExtractResult<minecraft.All, Name>> {
- *   // Return type is automatically inferred based on method name
- *   return await client.call(method);
- * }
+ * type Players = ResultOf<'minecraft:players'>;
+ * // PlayerObject[]
  * 
- * await callMethod('minecraft:players');
- * // { players? : PlayerObject[] }
+ * // Usage in a Promise return type
+ * type PendingPlayers = Promise<ResultOf<'minecraft:players'>>;
  * ```
  */
 export type ExtractResult<
