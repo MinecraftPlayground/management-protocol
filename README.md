@@ -75,11 +75,11 @@ import type { minecraft } from '@minecraft-server/management-protocol/definition
 
 type CustomGreetMethod = MethodObjectDefinition<{
   name : 'custom:player/greet',
-  params: [
+  params : [
     { player : minecraft.schemas.PlayerObject },
     { message : string }
   ],
-  result: minecraft.schemas.PlayerObject
+  result : minecraft.schemas.PlayerObject
 }>;
 
 const client = new Client<minecraft.Extend<CustomGreetMethod>>(
