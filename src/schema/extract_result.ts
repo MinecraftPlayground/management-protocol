@@ -2,7 +2,7 @@ import type { MethodObjectDefinition } from './method_object_definition.ts';
 
 
 /**
- * Extract the result type from a method or notification by its name.
+ * Extract the result type from a method by its name.
  * 
  * This utility type searches through a union of Definition types and extracts
  * the result property of the matching method/notification.
